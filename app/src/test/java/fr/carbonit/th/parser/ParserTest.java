@@ -29,6 +29,14 @@ public class ParserTest {
     }
 
     @Test
+    public void shouldAlertIfFileContentOnlyContainsWhiteSpaces() {
+        var input = new File("src/test/resources/whitespace_input_test.txt");
+        ThrowingCallable parser = () -> new Parser(input);
+
+        assertThatExceptionOfType(FileIsEmptyException.class).isThrownBy(parser);
+    }
+
+    @Test
     public void shouldCreateParserInstance() {
         var input = new File("src/test/resources/valid_input_test.txt");
         assertThatCode(() -> new Parser(input)).doesNotThrowAnyException();
