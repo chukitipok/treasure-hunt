@@ -6,7 +6,7 @@ Le gouvernement péruvien vient d’autoriser les aventuriers en quête de trés
 km2 du département de la Madre de Dios. Vous devez réaliser un système permettant de suivre les
 déplacements et les collectes de trésors effectuées par les aventuriers. Le gouvernement péruvien
 étant très à cheval sur les bonnes pratiques de code, il est important de réaliser un code de qualité,
-lisible, et maintenable (oui, ça veut dire avec des tests) !
+lisible, et maintenable **(oui, ça veut dire avec des tests) !**
 
 ## Données du problème
 
