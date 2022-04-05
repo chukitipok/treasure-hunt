@@ -14,7 +14,7 @@ public class ParserTest {
 
     @Test
     public void shouldAlertIfFileDoesNotExists() {
-        var input = new File("src/test/resources/input.txt");
+        var input = new File("src/test/resources/fixtures/parser/input.txt");
         ThrowingCallable parser = () -> new Parser(input);
 
         assertThatExceptionOfType(FileNotFoundException.class).isThrownBy(parser);
@@ -22,7 +22,7 @@ public class ParserTest {
 
     @Test
     public void shouldAlertIfFileHasEmptyContent() {
-        var input = new File("src/test/resources/empty_input_test.txt");
+        var input = new File("src/test/resources/fixtures/parser/empty_input_test.txt");
         ThrowingCallable parser = () -> new Parser(input);
 
         assertThatExceptionOfType(FileIsEmptyException.class).isThrownBy(parser);
@@ -30,7 +30,7 @@ public class ParserTest {
 
     @Test
     public void shouldAlertIfFileContentOnlyContainsWhiteSpaces() {
-        var input = new File("src/test/resources/whitespace_input_test.txt");
+        var input = new File("src/test/resources/fixtures/parser/whitespace_input_test.txt");
         ThrowingCallable parser = () -> new Parser(input);
 
         assertThatExceptionOfType(FileIsEmptyException.class).isThrownBy(parser);
@@ -38,7 +38,7 @@ public class ParserTest {
 
     @Test
     public void shouldCreateParserInstance() {
-        var input = new File("src/test/resources/valid_input_test.txt");
+        var input = new File("src/test/resources/fixtures/parser/valid_input_test.txt");
         assertThatCode(() -> new Parser(input)).doesNotThrowAnyException();
     }
 }
