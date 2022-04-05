@@ -9,18 +9,21 @@ import java.util.stream.Collectors;
 
 public class Parser {
 
-    public Parser(File input) throws IOException {
-        if (!input.exists()) {
-            throw new FileNotFoundException();
-        }
+    public Parser(File input) {
+        try {
+            if (!input.exists()) {
+                throw new FileNotFoundException();
+            }
 
-        List<String> content = Files.readAllLines(input.toPath())
-                .stream()
-                .filter(line -> !line.isEmpty() && !line.isBlank())
-                .collect(Collectors.toList());
+            List<String> content = Files.readAllLines(input.toPath())
+                    .stream()
+                    .filter(line -> !line.isEmpty() && !line.isBlank())
+                    .collect(Collectors.toList());
 
-        if (content.isEmpty()) {
-            throw new FileIsEmptyException();
+            if (content.isEmpty()) {
+                throw new FileIsEmptyException();
+            }
         }
+        catch (IOException | FileIsEmptyException exception) { throw new InvalidParserException(); }
     }
 }
