@@ -18,4 +18,14 @@ public class ParserTest {
 
         assertThatExceptionOfType(FileNotFoundException.class).isThrownBy(parser);
     }
+
+    @Test
+    public void shouldAlertIfFileHasEmptyContent() {
+        var input = new File("src/test/resources/empty_input_test.txt");
+        ThrowingCallable parser = () -> new Parser(input);
+
+        assertThatExceptionOfType(FileIsEmptyException.class).isThrownBy(parser);
+    }
+
+
 }
