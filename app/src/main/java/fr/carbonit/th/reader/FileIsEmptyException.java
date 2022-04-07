@@ -1,3 +1,3 @@
-package fr.carbonit.th.parser;
+package fr.carbonit.th.reader;
 
 public class FileIsEmptyException extends RuntimeException {}
