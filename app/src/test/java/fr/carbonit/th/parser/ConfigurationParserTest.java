@@ -18,7 +18,15 @@ public class ConfigurationParserTest {
 
     @Test
     public void shouldAlertIfRowContainsLessThan3ElementSeparatedByDashes() {
-        var input = fileProvider.provide(ParserFileType.ROW__WITH_LESS_THAN_3_ITEMS);
+        var input = fileProvider.provide(ParserFileType.ROW_WITH_LESS_THAN_3_ITEMS);
+        ThrowableAssert.ThrowingCallable callable = () -> parser.parse(input);
+
+        assertThatExceptionOfType(UnparsableFileException.class).isThrownBy(callable);
+    }
+
+    @Test
+    public void shouldAlertIfRowContainsMoreThan6ElementSeparatedByDashes() {
+        var input = fileProvider.provide(ParserFileType.ROW_WITH_MORE_THAN_6_ITEMS);
         ThrowableAssert.ThrowingCallable callable = () -> parser.parse(input);
 
         assertThatExceptionOfType(UnparsableFileException.class).isThrownBy(callable);
