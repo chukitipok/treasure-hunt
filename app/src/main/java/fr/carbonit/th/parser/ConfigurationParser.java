@@ -17,7 +17,7 @@ public class ConfigurationParser {
         List<String> content = reader.read(file);
         for (var row : content) {
             var s = row.split("-");
-            if (s.length < 3) {
+            if (s.length < 3 || s.length > 6) {
                 throw new UnparsableFileException();
             }
         }
