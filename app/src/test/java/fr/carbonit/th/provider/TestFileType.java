@@ -4,5 +4,6 @@ public enum TestFileType {
     NON_EXISTENT,
     VALID,
     EMPTY,
-    WHITESPACE
+    WHITESPACE,
+    DIRECTORY
 }

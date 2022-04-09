@@ -16,6 +16,9 @@ public class TestFileProvider {
             case VALID:
                 file = new File("src/test/resources/fixtures/parser/valid_input_test.txt");
                 break;
+            case DIRECTORY:
+                file = new File("src/test/resources/fixtures/parser/");
+                break;
             default:
                 file = new File("src/test/resources/fixtures/parser/input.txt");
                 break;

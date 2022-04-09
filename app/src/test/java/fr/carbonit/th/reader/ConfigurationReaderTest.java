@@ -58,4 +58,12 @@ public class ConfigurationReaderTest {
         List<String> content = reader.read(testFileProvider.create(TestFileType.VALID));
         assertFalse(content.isEmpty());
     }
+
+    @Test
+    public void shouldAlertIfFileIsDirectory() {
+        var input = testFileProvider.create(TestFileType.DIRECTORY);
+        ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
+
+        assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
+    }
 }
