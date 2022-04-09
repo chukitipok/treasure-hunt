@@ -34,7 +34,15 @@ public class ConfigurationParserTest {
 
     @Test
     public void shouldAlertIfRowFirstItemIsNotEqualToLetterC() {
-        var input = fileProvider.provide(ParserFileType.ROW_NOT_START_BY_LETTER_C);
+        var input = fileProvider.provide(ParserFileType.ROW_NOT_START_BY_LETTER_X);
+        ThrowableAssert.ThrowingCallable callable = () -> parser.parse(input);
+
+        assertThatExceptionOfType(UnparsableFileException.class).isThrownBy(callable);
+    }
+
+    @Test
+    public void shouldAlertIfRowFirstItemIsNotEqualToLetterM() {
+        var input = fileProvider.provide(ParserFileType.ROW_NOT_START_BY_LETTER_X);
         ThrowableAssert.ThrowingCallable callable = () -> parser.parse(input);
 
         assertThatExceptionOfType(UnparsableFileException.class).isThrownBy(callable);
