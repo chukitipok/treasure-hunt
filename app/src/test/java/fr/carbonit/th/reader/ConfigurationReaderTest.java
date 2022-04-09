@@ -12,16 +12,16 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class ConfigurationReaderTest {
 
     private final ConfigurationReader reader;
-    private final ReaderFileProvider testFileProvider;
+    private final ReaderFileProvider fileProvider;
 
     public ConfigurationReaderTest() {
         reader = new ConfigurationReader();
-        testFileProvider = new ReaderFileProvider();
+        fileProvider = new ReaderFileProvider();
     }
 
     @Test
     public void shouldAlertIfFileDoesNotExists() {
-        File input = testFileProvider.provide(ReaderFileType.NON_EXISTENT);
+        File input = fileProvider.provide(ReaderFileType.NON_EXISTENT);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
@@ -29,7 +29,7 @@ public class ConfigurationReaderTest {
 
     @Test
     public void shouldAlertIfFileHasEmptyContent() {
-        File input = testFileProvider.provide(ReaderFileType.EMPTY);
+        File input = fileProvider.provide(ReaderFileType.EMPTY);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
@@ -37,7 +37,7 @@ public class ConfigurationReaderTest {
 
     @Test
     public void shouldAlertIfFileContentOnlyContainsWhiteSpaces() {
-        var input = testFileProvider.provide(ReaderFileType.WHITESPACE);
+        var input = fileProvider.provide(ReaderFileType.WHITESPACE);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
@@ -45,7 +45,7 @@ public class ConfigurationReaderTest {
 
     @Test
     public void shouldAlertIfDetectIOException() {
-        var input = testFileProvider.provide(ReaderFileType.NON_EXISTENT);
+        var input = fileProvider.provide(ReaderFileType.NON_EXISTENT);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
@@ -53,13 +53,13 @@ public class ConfigurationReaderTest {
 
     @Test
     public void shouldReturnNonEmptyListOfStrings() {
-        List<String> content = reader.read(testFileProvider.provide(ReaderFileType.VALID));
+        List<String> content = reader.read(fileProvider.provide(ReaderFileType.VALID));
         assertFalse(content.isEmpty());
     }
 
     @Test
     public void shouldAlertIfFileIsDirectory() {
-        var input = testFileProvider.provide(ReaderFileType.DIRECTORY);
+        var input = fileProvider.provide(ReaderFileType.DIRECTORY);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
