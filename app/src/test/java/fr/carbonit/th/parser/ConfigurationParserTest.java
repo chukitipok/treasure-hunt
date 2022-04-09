@@ -33,7 +33,7 @@ public class ConfigurationParserTest {
     }
 
     @Test
-    public void shouldAlertIfRowDoesNotStartByLetterC() {
+    public void shouldAlertIfRowFirstItemIsNotEqualToLetterC() {
         var input = fileProvider.provide(ParserFileType.ROW_NOT_START_BY_LETTER_C);
         ThrowableAssert.ThrowingCallable callable = () -> parser.parse(input);
 
