@@ -20,6 +20,10 @@ public class ConfigurationParser {
             if (s.length < 3 || s.length > 6) {
                 throw new UnparsableFileException();
             }
+
+            if (!s[0].equals("C")) {
+                throw new UnparsableFileException();
+            }
         }
     }
 }
