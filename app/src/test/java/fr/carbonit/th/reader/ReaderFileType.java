@@ -1,6 +1,6 @@
-package fr.carbonit.th.provider;
+package fr.carbonit.th.reader;
 
-public enum TestFileType {
+public enum ReaderFileType {
     NON_EXISTENT,
     VALID,
     EMPTY,

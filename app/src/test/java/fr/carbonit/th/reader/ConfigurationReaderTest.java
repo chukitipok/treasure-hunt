@@ -1,7 +1,5 @@
 package fr.carbonit.th.reader;
 
-import fr.carbonit.th.provider.TestFileProvider;
-import fr.carbonit.th.provider.TestFileType;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 
@@ -14,16 +12,16 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 public class ConfigurationReaderTest {
 
     private final ConfigurationReader reader;
-    private final TestFileProvider testFileProvider;
+    private final ReaderFileProvider testFileProvider;
 
     public ConfigurationReaderTest() {
         reader = new ConfigurationReader();
-        testFileProvider = new TestFileProvider();
+        testFileProvider = new ReaderFileProvider();
     }
 
     @Test
     public void shouldAlertIfFileDoesNotExists() {
-        File input = testFileProvider.create(TestFileType.NON_EXISTENT);
+        File input = testFileProvider.provide(ReaderFileType.NON_EXISTENT);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
@@ -31,7 +29,7 @@ public class ConfigurationReaderTest {
 
     @Test
     public void shouldAlertIfFileHasEmptyContent() {
-        File input = testFileProvider.create(TestFileType.EMPTY);
+        File input = testFileProvider.provide(ReaderFileType.EMPTY);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
@@ -39,7 +37,7 @@ public class ConfigurationReaderTest {
 
     @Test
     public void shouldAlertIfFileContentOnlyContainsWhiteSpaces() {
-        var input = testFileProvider.create(TestFileType.WHITESPACE);
+        var input = testFileProvider.provide(ReaderFileType.WHITESPACE);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
@@ -47,7 +45,7 @@ public class ConfigurationReaderTest {
 
     @Test
     public void shouldAlertIfDetectIOException() {
-        var input = testFileProvider.create(TestFileType.NON_EXISTENT);
+        var input = testFileProvider.provide(ReaderFileType.NON_EXISTENT);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
@@ -55,13 +53,13 @@ public class ConfigurationReaderTest {
 
     @Test
     public void shouldReturnNonEmptyListOfStrings() {
-        List<String> content = reader.read(testFileProvider.create(TestFileType.VALID));
+        List<String> content = reader.read(testFileProvider.provide(ReaderFileType.VALID));
         assertFalse(content.isEmpty());
     }
 
     @Test
     public void shouldAlertIfFileIsDirectory() {
-        var input = testFileProvider.create(TestFileType.DIRECTORY);
+        var input = testFileProvider.provide(ReaderFileType.DIRECTORY);
         ThrowableAssert.ThrowingCallable callable = () -> reader.read(input);
 
         assertThatExceptionOfType(UnreadableFileException.class).isThrownBy(callable);
