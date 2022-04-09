@@ -1,0 +1,26 @@
+package fr.carbonit.th.parser;
+
+import fr.carbonit.th.reader.ConfigurationReader;
+import org.assertj.core.api.ThrowableAssert;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+
+public class ConfigurationParserTest {
+
+    private final ParserFileProvider fileProvider;
+    private final ConfigurationParser parser;
+
+    public ConfigurationParserTest() {
+        fileProvider = new ParserFileProvider();
+        parser = new ConfigurationParser(new ConfigurationReader());
+    }
+
+    @Test
+    public void shouldAlertIfRowContainsLessThan3ElementSeparatedByDashes() {
+        var input = fileProvider.provide(ParserFileType.ROW__WITH_LESS_THAN_3_ITEMS);
+        ThrowableAssert.ThrowingCallable callable = () -> parser.parse(input);
+
+        assertThatExceptionOfType(UnparsableFileException.class).isThrownBy(callable);
+    }
+}
