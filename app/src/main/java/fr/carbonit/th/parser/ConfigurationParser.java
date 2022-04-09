@@ -21,7 +21,7 @@ public class ConfigurationParser {
                 throw new UnparsableFileException();
             }
 
-            if (!s[0].equals("C")) {
+            if (!s[0].equals("C") || !s[0].equals("M")) {
                 throw new UnparsableFileException();
             }
         }
