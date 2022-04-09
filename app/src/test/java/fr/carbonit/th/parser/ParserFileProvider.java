@@ -15,6 +15,9 @@ public class ParserFileProvider implements FileProvider<ParserFileType> {
             case ROW_WITH_MORE_THAN_6_ITEMS:
                 file = new File("src/test/resources/fixtures/parser/row_has_more_than_6_items.txt");
                 break;
+            case ROW_NOT_START_BY_LETTER_C:
+                file = new File("src/test/resources/fixtures/parser/row_does_not_start_by_letter_C.txt");
+                break;
             default:
                 file = new File("src/test/resources/fixtures/parser/input.txt");
                 break;

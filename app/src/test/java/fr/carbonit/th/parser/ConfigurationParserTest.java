@@ -31,4 +31,12 @@ public class ConfigurationParserTest {
 
         assertThatExceptionOfType(UnparsableFileException.class).isThrownBy(callable);
     }
+
+    @Test
+    public void shouldAlertIfRowDoesNotStartByLetterC() {
+        var input = fileProvider.provide(ParserFileType.ROW_NOT_START_BY_LETTER_C);
+        ThrowableAssert.ThrowingCallable callable = () -> parser.parse(input);
+
+        assertThatExceptionOfType(UnparsableFileException.class).isThrownBy(callable);
+    }
 }
