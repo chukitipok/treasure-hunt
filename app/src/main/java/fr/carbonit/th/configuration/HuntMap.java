@@ -8,7 +8,7 @@ public class HuntMap {
     private final Integer columns;
 
     public HuntMap(Integer rows, Integer columns) {
-        if (rows <= 0) {
+        if (rows < 1 || columns < 1) {
             throw new InvalidMapException();
         }
 
