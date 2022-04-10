@@ -17,4 +17,12 @@ public class TreasureTest {
         assertThatExceptionOfType(InvalidTreasureException.class).isThrownBy(callable);
     }
 
+    @Test
+    public void shouldAlertIfPositionYIsLessThanZero() {
+        Coordinates position = new Coordinates(0, -1);
+        ThrowingCallable callable = () -> new Treasure(position, 3);
+
+        assertThatExceptionOfType(InvalidTreasureException.class).isThrownBy(callable);
+    }
+
 }
