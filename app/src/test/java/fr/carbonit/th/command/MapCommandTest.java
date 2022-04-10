@@ -4,8 +4,8 @@ import fr.carbonit.th.configuration.HuntMap;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 
-import static org.assertj.core.api.Assertions.assertThatCode;
-import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
+import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class MapCommandTest {
 
@@ -38,5 +38,11 @@ public class MapCommandTest {
         assertThatCode(() -> new MapCommand("C - 1 - 1")).doesNotThrowAnyException();
     }
 
+    @Test
+    public void shouldCreateAnInstanceOfHunMap() {
+        MapCommand command = new MapCommand("C - 1 - 1");
+        HuntMap map = (HuntMap) command.handle();
 
+        assertTrue(map.getRows().equals(1) && map.getColumns().equals(1));
+    }
 }
