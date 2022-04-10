@@ -27,7 +27,9 @@ public class TreasureHuntConfiguration {
 
     private void checkValidity() {
         int area = map.getRows() * map.getColumns();
-        if (mountains.size() > area || adventurers.size() > area)
+        int mountainsSize = mountains.size();
+        int adventurersSize = adventurers.size();
+        if (mountainsSize > area || adventurersSize > area || mountainsSize + adventurersSize > area)
             throw new InvalidTreasureHuntConfiguration();
     }
 
