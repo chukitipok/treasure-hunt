@@ -61,4 +61,20 @@ public class TreasureHuntConfigurationTest {
         ThrowingCallable callable = () -> new TreasureHuntConfiguration(commands);
         assertThatExceptionOfType(InvalidTreasureHuntConfiguration.class).isThrownBy(callable);
     }
+
+    @Test
+    public void shouldAlertIfAdventurersNumberAndMountainsNumberIsMoreThanArea() {
+        commands.add(new MapCommand("C-2-2"));
+
+        for (int i = 0; i < 2; i++) {
+            commands.add(new MountainCommand("M-" + i + "-" + i));
+        }
+
+        for (int j = 0; j < 3; j++) {
+            commands.add(new AdventurerCommand("A-Laura-" + j + "-" + j + "-S-AAGDDAGAAA"));
+        }
+
+        ThrowingCallable callable = () -> new TreasureHuntConfiguration(commands);
+        assertThatExceptionOfType(InvalidTreasureHuntConfiguration.class).isThrownBy(callable);
+    }
 }
