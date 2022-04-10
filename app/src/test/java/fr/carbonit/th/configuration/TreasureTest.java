@@ -25,4 +25,12 @@ public class TreasureTest {
         assertThatExceptionOfType(InvalidTreasureException.class).isThrownBy(callable);
     }
 
+    @Test
+    public void shouldAlertIfChestsNumberIsLessThanOne() {
+        Coordinates position = new Coordinates(0, 0);
+        ThrowingCallable callable = () -> new Treasure(position, 0);
+
+        assertThatExceptionOfType(InvalidTreasureException.class).isThrownBy(callable);
+    }
+
 }
