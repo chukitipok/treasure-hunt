@@ -26,10 +26,10 @@ public class TreasureHuntConfiguration {
     }
 
     private void checkValidity() {
-        int area = map.getRows() * map.getColumns();
-        int mountainsSize = mountains.size();
-        int adventurersSize = adventurers.size();
-        if (mountainsSize > area || adventurersSize > area || mountainsSize + adventurersSize > area)
+        int mapArea = map.getRows() * map.getColumns();
+        int sumOfMountainsAndAdventurers = mountains.size() + adventurers.size();
+
+        if (sumOfMountainsAndAdventurers > mapArea)
             throw new InvalidTreasureHuntConfiguration();
     }
 
