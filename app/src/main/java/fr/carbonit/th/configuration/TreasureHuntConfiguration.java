@@ -6,6 +6,7 @@ import fr.carbonit.th.command.MapCommand;
 import fr.carbonit.th.command.MountainCommand;
 import fr.carbonit.th.configuration.exceptions.AnyAdventurerFoundException;
 import fr.carbonit.th.configuration.exceptions.HuntMapNotFoundException;
+import fr.carbonit.th.configuration.exceptions.InvalidTreasureHuntConfiguration;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,6 +21,14 @@ public class TreasureHuntConfiguration {
         map = handleHuntMap(commands);
         adventurers = handleAdventurers(commands);
         mountains = handleMountains(commands);
+
+        checkValidity();
+    }
+
+    private void checkValidity() {
+        int area = map.getRows() * map.getColumns();
+        if (mountains.size() > area)
+            throw new InvalidTreasureHuntConfiguration();
     }
 
     private HuntMap handleHuntMap(List<Command> commands) {

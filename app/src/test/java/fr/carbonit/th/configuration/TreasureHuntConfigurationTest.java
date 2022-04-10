@@ -1,5 +1,6 @@
 package fr.carbonit.th.configuration;
 
+import fr.carbonit.th.command.AdventurerCommand;
 import fr.carbonit.th.command.Command;
 import fr.carbonit.th.command.MapCommand;
 import fr.carbonit.th.command.MountainCommand;
@@ -41,7 +42,7 @@ public class TreasureHuntConfigurationTest {
             }
         }
 
-        System.out.println(commands.size());
+        commands.add(new AdventurerCommand("A-Laura-1-1-S-AAGDDAGAAA"));
 
         ThrowingCallable callable = () -> new TreasureHuntConfiguration(commands);
         assertThatExceptionOfType(InvalidTreasureHuntConfiguration.class).isThrownBy(callable);
