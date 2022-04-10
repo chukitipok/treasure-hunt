@@ -1,6 +1,7 @@
 package fr.carbonit.th.command;
 
 import fr.carbonit.th.configuration.Mountain;
+import fr.carbonit.th.configuration.exceptions.InvalidMountainException;
 
 public class MountainCommand extends Command {
 
@@ -25,6 +26,11 @@ public class MountainCommand extends Command {
     }
 
     public Object handle() {
-        return new Mountain(position);
+        try {
+            return new Mountain(position);
+        }
+        catch (InvalidMountainException exception) {
+            throw new InvalidCommandException();
+        }
     }
 }
