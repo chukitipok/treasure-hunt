@@ -1,7 +1,9 @@
 package fr.carbonit.th.command;
 
 import fr.carbonit.th.configuration.HuntMap;
+import fr.carbonit.th.configuration.exceptions.InvalidMapException;
 import org.assertj.core.api.ThrowableAssert;
+import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.*;
@@ -11,25 +13,25 @@ public class MapCommandTest {
 
     @Test
     public void shouldAlertIfItemsSizeDifferentThan3() {
-        ThrowableAssert.ThrowingCallable callable = () -> new MapCommand("X - X");
+        ThrowingCallable callable = () -> new MapCommand("X - X");
         assertThatExceptionOfType(InvalidCommandException.class).isThrownBy(callable);
     }
 
     @Test
     public void shouldAlertIfFirstItemIsNotEqualToLetterC() {
-        ThrowableAssert.ThrowingCallable callable = () -> new MapCommand("X - X - X");
+        ThrowingCallable callable = () -> new MapCommand("X - X - X");
         assertThatExceptionOfType(InvalidCommandException.class).isThrownBy(callable);
     }
 
     @Test
     public void shouldAlertIfSecondItemIsNotANumber() {
-        ThrowableAssert.ThrowingCallable callable = () -> new MapCommand("C - X - X");
+        ThrowingCallable callable = () -> new MapCommand("C - X - X");
         assertThatExceptionOfType(InvalidCommandException.class).isThrownBy(callable);
     }
 
     @Test
     public void shouldAlertIfThirdItemIsNotANumber() {
-        ThrowableAssert.ThrowingCallable callable = () -> new MapCommand("C - 1 - X");
+        ThrowingCallable callable = () -> new MapCommand("C - 1 - X");
         assertThatExceptionOfType(InvalidCommandException.class).isThrownBy(callable);
     }
 
@@ -44,5 +46,13 @@ public class MapCommandTest {
         HuntMap map = (HuntMap) command.handle();
 
         assertTrue(map.getRows().equals(1) && map.getColumns().equals(1));
+    }
+
+    @Test
+    public void shouldAlertIfRowNumberIsLessOrEqualThanZero() {
+        MapCommand command = new MapCommand("C - 0 - 1");
+        ThrowingCallable callable = command::handle;
+
+        assertThatExceptionOfType(InvalidMapException.class).isThrownBy(callable);
     }
 }
