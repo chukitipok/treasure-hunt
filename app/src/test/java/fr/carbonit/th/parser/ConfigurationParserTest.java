@@ -4,6 +4,7 @@ import fr.carbonit.th.reader.ConfigurationReader;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThatCode;
 import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 
 public class ConfigurationParserTest {
@@ -46,5 +47,11 @@ public class ConfigurationParserTest {
         ThrowableAssert.ThrowingCallable callable = () -> parser.parse(input);
 
         assertThatExceptionOfType(UnparsableFileException.class).isThrownBy(callable);
+    }
+
+    @Test
+    public void shouldReturnAnInstanceOfTreasureHuntConfiguration() {
+        var input = fileProvider.provide(ParserFileType.VALID);
+        assertThatCode(() -> parser.parse(input)).doesNotThrowAnyException();
     }
 }

@@ -18,6 +18,9 @@ public class ParserFileProvider implements FileProvider<ParserFileType> {
             case ROW_NOT_START_BY_LETTER_X:
                 file = new File("src/test/resources/fixtures/parser/row_does_not_start_by_letter_X.txt");
                 break;
+            case VALID:
+                file = new File("src/test/resources/fixtures/parser/valid_input_test.txt");
+                break;
             default:
                 file = new File("src/test/resources/fixtures/parser/input.txt");
                 break;
