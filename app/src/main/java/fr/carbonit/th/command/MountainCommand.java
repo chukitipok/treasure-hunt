@@ -1,5 +1,7 @@
 package fr.carbonit.th.command;
 
+import fr.carbonit.th.configuration.Mountain;
+
 public class MountainCommand extends Command {
 
     private final Coordinates position;
@@ -20,5 +22,9 @@ public class MountainCommand extends Command {
         catch (NumberFormatException exception) {
             throw new InvalidCommandException();
         }
+    }
+
+    public Object handle() {
+        return new Mountain(position);
     }
 }

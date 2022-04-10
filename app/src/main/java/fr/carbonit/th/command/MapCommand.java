@@ -1,5 +1,7 @@
 package fr.carbonit.th.command;
 
+import fr.carbonit.th.configuration.HuntMap;
+
 public class MapCommand extends Command {
 
     private final Integer rows;
@@ -19,5 +21,9 @@ public class MapCommand extends Command {
         catch (NumberFormatException exception) {
             throw new InvalidCommandException();
         }
+    }
+
+    public Object handle() {
+        return new HuntMap(rows, columns);
     }
 }

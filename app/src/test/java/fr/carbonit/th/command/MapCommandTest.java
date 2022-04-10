@@ -1,5 +1,6 @@
 package fr.carbonit.th.command;
 
+import fr.carbonit.th.configuration.HuntMap;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 
@@ -36,4 +37,6 @@ public class MapCommandTest {
     public void shouldCreateMapCommandInstance() {
         assertThatCode(() -> new MapCommand("C - 1 - 1")).doesNotThrowAnyException();
     }
+
+
 }

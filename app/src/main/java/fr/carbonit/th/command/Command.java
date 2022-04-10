@@ -12,4 +12,6 @@ public abstract class Command {
         List<String> items = List.of(s);
         this.items = items.stream().map(String::trim).collect(Collectors.toList());
     }
+
+    public abstract Object handle();
 }

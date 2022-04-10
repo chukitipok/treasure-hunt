@@ -1,5 +1,7 @@
 package fr.carbonit.th.command;
 
+import fr.carbonit.th.configuration.Adventurer;
+
 public class AdventurerCommand extends Command {
 
     private final String name;
@@ -18,11 +20,15 @@ public class AdventurerCommand extends Command {
             name = items.get(1);
             position = new Coordinates(x, y);
             orientation = items.get(4);
-            actions =  items.get(5);
+            actions = items.get(5);
         }
         catch (NumberFormatException exception) {
             throw new InvalidCommandException();
         }
+    }
+
+    public Object handle() {
+        return new Adventurer(name, position, orientation, actions);
     }
 
     private void checkStringItems() {

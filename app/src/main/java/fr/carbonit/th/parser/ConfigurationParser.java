@@ -1,9 +1,13 @@
 package fr.carbonit.th.parser;
 
+import fr.carbonit.th.configuration.TreasureHuntConfiguration;
+import fr.carbonit.th.command.Command;
+import fr.carbonit.th.command.CommandFactory;
+import fr.carbonit.th.command.InvalidCommandException;
 import fr.carbonit.th.reader.Reader;
 
 import java.io.File;
-import java.util.List;
+import java.util.*;
 
 public class ConfigurationParser {
 
@@ -13,11 +17,21 @@ public class ConfigurationParser {
         this.reader = reader;
     }
 
-    public void parse(File file) {
-        List<String> content = reader.read(file);
+    public TreasureHuntConfiguration parse(File file) {
+        try {
+            List<String> content = reader.read(file);
+            Queue<Command> commands = new PriorityQueue<>();
+            CommandFactory commandFactory = new CommandFactory();
 
-        for (var row : content) {
-            Command command = new Command(row);
+            for (var row : content) {
+                Command command = commandFactory.create(row);
+                commands.add(command);
+            }
+
+            return new TreasureHuntConfiguration(commands);
+        }
+        catch (InvalidCommandException exception) {
+            throw new UnparsableFileException();
         }
     }
 }

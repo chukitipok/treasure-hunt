@@ -1,9 +1,11 @@
 package fr.carbonit.th.command;
 
+import fr.carbonit.th.configuration.Treasure;
+
 public class TreasureCommand extends Command {
 
     private final Coordinates position;
-    private final Integer treasures;
+    private final Integer chests;
 
     public TreasureCommand(String input) {
         super(input);
@@ -17,10 +19,14 @@ public class TreasureCommand extends Command {
             Integer y = Integer.valueOf(items.get(2));
 
             position = new Coordinates(x, y);
-            treasures = Integer.valueOf(items.get(3));
+            chests = Integer.valueOf(items.get(3));
         }
         catch (NumberFormatException exception) {
             throw new InvalidCommandException();
         }
+    }
+
+    public Object handle() {
+        return new Treasure(position, chests);
     }
 }
