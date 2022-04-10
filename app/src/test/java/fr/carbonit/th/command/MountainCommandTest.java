@@ -1,8 +1,7 @@
 package fr.carbonit.th.command;
 
-import fr.carbonit.th.configuration.HuntMap;
 import fr.carbonit.th.configuration.Mountain;
-import fr.carbonit.th.configuration.exceptions.InvalidMapException;
+import fr.carbonit.th.configuration.exceptions.InvalidMountainException;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 
@@ -51,19 +50,10 @@ public class MountainCommandTest {
     }
 
     @Test
-    public void shouldAlertIfRowNumberIsLessThanOne() {
-        MapCommand command = new MapCommand("C - 0 - 1");
+    public void shouldAlertIfPositionXIsLessThanZero() {
+        MountainCommand command = new MountainCommand("M - \\-1 - 1");
         ThrowableAssert.ThrowingCallable callable = command::handle;
 
-        assertThatExceptionOfType(InvalidMapException.class).isThrownBy(callable);
+        assertThatExceptionOfType(InvalidMountainException.class).isThrownBy(callable);
     }
-
-    @Test
-    public void shouldAlertIfColumnNumberIsLessThanOne() {
-        MapCommand command = new MapCommand("C - 1 - 0");
-        ThrowableAssert.ThrowingCallable callable = command::handle;
-
-        assertThatExceptionOfType(InvalidMapException.class).isThrownBy(callable);
-    }
-
 }
