@@ -1,9 +1,6 @@
 package fr.carbonit.th.configuration;
 
-import fr.carbonit.th.command.AdventurerCommand;
-import fr.carbonit.th.command.Command;
-import fr.carbonit.th.command.MapCommand;
-import fr.carbonit.th.command.MountainCommand;
+import fr.carbonit.th.command.*;
 import fr.carbonit.th.configuration.exceptions.AnyAdventurerFoundException;
 import fr.carbonit.th.configuration.exceptions.HuntMapNotFoundException;
 import fr.carbonit.th.configuration.exceptions.InvalidTreasureHuntConfiguration;
@@ -16,20 +13,22 @@ public class TreasureHuntConfiguration {
     private final HuntMap map;
     private final List<Adventurer> adventurers;
     private final List<Mountain> mountains;
+    private final List<Treasure> treasures;
 
     public TreasureHuntConfiguration(List<Command> commands) {
         map = handleHuntMap(commands);
         adventurers = handleAdventurers(commands);
         mountains = handleMountains(commands);
+        treasures = handleTreasures(commands);
 
         checkValidity();
     }
 
     private void checkValidity() {
         int mapArea = map.getRows() * map.getColumns();
-        int sumOfMountainsAndAdventurers = mountains.size() + adventurers.size();
+        int sum = mountains.size() + adventurers.size() + treasures.size();
 
-        if (sumOfMountainsAndAdventurers > mapArea)
+        if (sum > mapArea)
             throw new InvalidTreasureHuntConfiguration();
     }
 
@@ -59,6 +58,13 @@ public class TreasureHuntConfiguration {
         return commands.stream()
                 .filter(command -> command instanceof MountainCommand)
                 .map(command -> (Mountain) command.handle())
+                .collect(Collectors.toList());
+    }
+
+    private List<Treasure> handleTreasures(List<Command> commands) {
+        return commands.stream()
+                .filter(command -> command instanceof TreasureCommand)
+                .map(command -> (Treasure) command.handle())
                 .collect(Collectors.toList());
     }
 }
