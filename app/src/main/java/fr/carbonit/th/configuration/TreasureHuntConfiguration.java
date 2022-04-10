@@ -8,7 +8,6 @@ import fr.carbonit.th.configuration.exceptions.AnyAdventurerFoundException;
 import fr.carbonit.th.configuration.exceptions.HuntMapNotFoundException;
 
 import java.util.List;
-import java.util.Queue;
 import java.util.stream.Collectors;
 
 public class TreasureHuntConfiguration {
@@ -17,13 +16,13 @@ public class TreasureHuntConfiguration {
     private final List<Adventurer> adventurers;
     private final List<Mountain> mountains;
 
-    public TreasureHuntConfiguration(Queue<Command> commands) {
+    public TreasureHuntConfiguration(List<Command> commands) {
         map = handleHuntMap(commands);
         adventurers = handleAdventurers(commands);
         mountains = handleMountains(commands);
     }
 
-    private HuntMap handleHuntMap(Queue<Command> commands) {
+    private HuntMap handleHuntMap(List<Command> commands) {
         Command mapCommand = commands.stream()
                 .filter(command -> command instanceof MapCommand)
                 .findFirst()
@@ -32,7 +31,7 @@ public class TreasureHuntConfiguration {
         return (HuntMap) mapCommand.handle();
     }
 
-    private List<Adventurer> handleAdventurers(Queue<Command> commands) {
+    private List<Adventurer> handleAdventurers(List<Command> commands) {
         List<Adventurer> adventurers = commands.stream()
                 .filter(command -> command instanceof AdventurerCommand)
                 .map(command -> (Adventurer) command.handle())
@@ -45,7 +44,7 @@ public class TreasureHuntConfiguration {
         return adventurers;
     }
 
-    private List<Mountain> handleMountains(Queue<Command> commands) {
+    private List<Mountain> handleMountains(List<Command> commands) {
         return commands.stream()
                 .filter(command -> command instanceof MountainCommand)
                 .map(command -> (Mountain) command.handle())

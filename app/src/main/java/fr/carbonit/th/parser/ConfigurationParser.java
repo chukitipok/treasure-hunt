@@ -20,7 +20,7 @@ public class ConfigurationParser {
     public TreasureHuntConfiguration parse(File file) {
         try {
             List<String> content = reader.read(file);
-            Queue<Command> commands = new PriorityQueue<>();
+            List<Command> commands = new ArrayList<>();
             CommandFactory commandFactory = new CommandFactory();
 
             for (var row : content) {
