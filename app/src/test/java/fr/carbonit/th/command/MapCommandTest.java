@@ -49,8 +49,16 @@ public class MapCommandTest {
     }
 
     @Test
-    public void shouldAlertIfRowNumberIsLessOrEqualThanZero() {
+    public void shouldAlertIfRowNumberIsLessThanOne() {
         MapCommand command = new MapCommand("C - 0 - 1");
+        ThrowingCallable callable = command::handle;
+
+        assertThatExceptionOfType(InvalidMapException.class).isThrownBy(callable);
+    }
+
+    @Test
+    public void shouldAlertIfColumnNumberIsLessThanOne() {
+        MapCommand command = new MapCommand("C - 1 - 0");
         ThrowingCallable callable = command::handle;
 
         assertThatExceptionOfType(InvalidMapException.class).isThrownBy(callable);
