@@ -1,9 +1,6 @@
 package fr.carbonit.th.configuration;
 
-import fr.carbonit.th.command.AdventurerCommand;
-import fr.carbonit.th.command.Command;
-import fr.carbonit.th.command.MapCommand;
-import fr.carbonit.th.command.MountainCommand;
+import fr.carbonit.th.command.*;
 import fr.carbonit.th.configuration.exceptions.HuntMapNotFoundException;
 import fr.carbonit.th.configuration.exceptions.InvalidTreasureHuntConfiguration;
 import org.junit.jupiter.api.BeforeEach;
@@ -73,6 +70,22 @@ public class TreasureHuntConfigurationTest {
         for (int j = 0; j < 3; j++) {
             commands.add(new AdventurerCommand("A-Laura-" + j + "-" + j + "-S-AAGDDAGAAA"));
         }
+
+        ThrowingCallable callable = () -> new TreasureHuntConfiguration(commands);
+        assertThatExceptionOfType(InvalidTreasureHuntConfiguration.class).isThrownBy(callable);
+    }
+
+    @Test
+    public void shouldAlertIfTreasuresNumberIsMoreThanArea() {
+        commands.add(new MapCommand("C-2-2"));
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                commands.add(new TreasureCommand("T-" + i + "-" + j + "-3"));
+            }
+        }
+
+        commands.add(new AdventurerCommand("A-Laura-1-1-S-AAGDDAGAAA"));
 
         ThrowingCallable callable = () -> new TreasureHuntConfiguration(commands);
         assertThatExceptionOfType(InvalidTreasureHuntConfiguration.class).isThrownBy(callable);
