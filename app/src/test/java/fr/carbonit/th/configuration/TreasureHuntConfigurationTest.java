@@ -1,9 +1,10 @@
 package fr.carbonit.th.configuration;
 
 import fr.carbonit.th.command.Command;
+import fr.carbonit.th.command.MapCommand;
 import fr.carbonit.th.command.MountainCommand;
 import fr.carbonit.th.configuration.exceptions.HuntMapNotFoundException;
-import org.assertj.core.api.ThrowableAssert;
+import fr.carbonit.th.configuration.exceptions.InvalidTreasureHuntConfiguration;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -28,5 +29,21 @@ public class TreasureHuntConfigurationTest {
         ThrowingCallable callable = () -> new TreasureHuntConfiguration(commands);
 
         assertThatExceptionOfType(HuntMapNotFoundException.class).isThrownBy(callable);
+    }
+
+    @Test
+    public void shouldAlertIfMapTooManyMountains() {
+        commands.add(new MapCommand("C-2-2"));
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 3; j++) {
+                commands.add(new MountainCommand("M-" + i + "-" + j));
+            }
+        }
+
+        System.out.println(commands.size());
+
+        ThrowingCallable callable = () -> new TreasureHuntConfiguration(commands);
+        assertThatExceptionOfType(InvalidTreasureHuntConfiguration.class).isThrownBy(callable);
     }
 }
