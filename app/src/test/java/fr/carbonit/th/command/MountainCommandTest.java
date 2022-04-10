@@ -1,7 +1,6 @@
 package fr.carbonit.th.command;
 
 import fr.carbonit.th.configuration.Mountain;
-import fr.carbonit.th.configuration.exceptions.InvalidMountainException;
 import org.assertj.core.api.ThrowableAssert;
 import org.junit.jupiter.api.Test;
 
@@ -47,13 +46,5 @@ public class MountainCommandTest {
 
         assertTrue(mountain.getPosition().getX().equals(1)
                 && mountain.getPosition().getY().equals(1));
-    }
-
-    @Test
-    public void shouldAlertIfPositionXIsLessThanZero() {
-        MountainCommand command = new MountainCommand("M - \\-1 - 1");
-        ThrowableAssert.ThrowingCallable callable = command::handle;
-
-        assertThatExceptionOfType(InvalidMountainException.class).isThrownBy(callable);
     }
 }
