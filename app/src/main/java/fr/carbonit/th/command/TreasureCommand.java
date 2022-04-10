@@ -1,6 +1,7 @@
 package fr.carbonit.th.command;
 
 import fr.carbonit.th.configuration.Treasure;
+import fr.carbonit.th.configuration.exceptions.InvalidChestsNumberException;
 
 public class TreasureCommand extends Command {
 
@@ -27,6 +28,11 @@ public class TreasureCommand extends Command {
     }
 
     public Object handle() {
-        return new Treasure(position, chests);
+        try {
+            return new Treasure(position, chests);
+        }
+        catch (InvalidChestsNumberException exception) {
+            throw new InvalidCommandException();
+        }
     }
 }
