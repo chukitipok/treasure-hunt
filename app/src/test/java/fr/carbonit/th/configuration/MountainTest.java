@@ -16,4 +16,12 @@ public class MountainTest {
 
         assertThatExceptionOfType(InvalidMountainException.class).isThrownBy(callable);
     }
+
+    @Test
+    public void shouldAlertIfPositionYIsLessThanZero() {
+        Coordinates position = new Coordinates(0, -1);
+        ThrowableAssert.ThrowingCallable callable = () -> new Mountain(position);
+
+        assertThatExceptionOfType(InvalidMountainException.class).isThrownBy(callable);
+    }
 }
