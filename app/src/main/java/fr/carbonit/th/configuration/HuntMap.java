@@ -9,4 +9,12 @@ public class HuntMap {
         this.rows = rows;
         this.columns = columns;
     }
+
+    public Integer getRows() {
+        return rows;
+    }
+
+    public Integer getColumns() {
+        return columns;
+    }
 }
