@@ -9,7 +9,7 @@ public class Mountain {
     private final Coordinates position;
 
     public Mountain(Coordinates position) {
-        if (position.getX() < 0) {
+        if (position.getX() < 0 || position.getY() < 0) {
             throw new InvalidMountainException();
         }
 
