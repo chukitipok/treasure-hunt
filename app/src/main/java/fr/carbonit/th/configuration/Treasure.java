@@ -9,7 +9,7 @@ public class Treasure {
     private final Integer chests;
 
     public Treasure(Coordinates position, Integer chests) {
-        if (chests < 1 || position.getX() < 0) {
+        if (chests < 1 || position.getX() < 0 || position.getY() < 0) {
             throw new InvalidTreasureException();
         }
 
