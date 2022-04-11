@@ -26,4 +26,9 @@ public class SimulatorTest {
     public void shouldHaveAMapOfCoordinatesAsProperty() {
         assertNotEquals(null, simulator.getMap());
     }
+
+    @Test
+    public void shouldHaveASizeMapEqualsTo12() {
+        assertEquals(12, simulator.getMap().size());
+    }
 }
