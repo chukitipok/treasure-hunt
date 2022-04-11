@@ -22,4 +22,13 @@ public class TreasureTest {
 
         assertEquals(1, treasure.getChests());
     }
+
+    @Test
+    public void shouldNotHaveNegativeChestsNumber() {
+        Treasure treasure = new Treasure();
+        treasure.collected();
+        treasure.collected();
+
+        assertEquals(0, treasure.getChests());
+    }
 }
