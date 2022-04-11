@@ -17,8 +17,12 @@ public class Treasure {
     }
 
     public void collected() {
-        if (chests > 0) {
+        if (canBeCollected()) {
             chests--;
         }
+    }
+
+    public boolean canBeCollected() {
+        return chests > 0;
     }
 }
