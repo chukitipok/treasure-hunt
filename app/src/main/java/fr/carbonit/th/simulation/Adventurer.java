@@ -9,7 +9,10 @@ public class Adventurer {
     }
 
     public void collect(Treasure treasure) {
-        treasures++;
+        if (treasure.getChests() > 0) {
+            treasures++;
+            treasure.collected();
+        }
     }
 
     public Integer getTreasures() {
