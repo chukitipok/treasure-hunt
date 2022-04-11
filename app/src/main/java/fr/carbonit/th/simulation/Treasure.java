@@ -3,17 +3,11 @@ package fr.carbonit.th.simulation;
 public class Treasure {
 
     private Integer chests;
+    private final Position position;
 
-    public Treasure() {
-        chests = 1;
-    }
-
-    public Treasure(Integer chests) {
+    public Treasure(Integer chests, Position position) {
         this.chests = chests;
-    }
-
-    public Integer getChests() {
-        return chests;
+        this.position = position;
     }
 
     public void collected() {
@@ -24,5 +18,13 @@ public class Treasure {
 
     public boolean canBeCollected() {
         return chests > 0;
+    }
+
+    public Integer getChests() {
+        return chests;
+    }
+
+    public Position getPosition() {
+        return position;
     }
 }
