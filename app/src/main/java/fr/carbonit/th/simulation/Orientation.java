@@ -20,4 +20,10 @@ public enum Orientation {
             return WEST;
         return Orientation.values()[this.ordinal() - 1];
     }
+
+    public Orientation right() {
+        if (this == WEST)
+            return NORTH;
+        return Orientation.values()[this.ordinal() + 1];
+    }
 }
