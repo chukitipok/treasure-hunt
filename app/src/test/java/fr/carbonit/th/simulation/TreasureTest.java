@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class TreasureTest {
 
     @Test
-    public void shouldLooseOneChest() {
+    public void shouldBeCollectedOnce() {
         Treasure treasure = new Treasure();
         treasure.collected();
 
