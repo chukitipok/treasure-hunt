@@ -19,12 +19,28 @@ public class OrientationTest {
         assertEquals(expectedOrientation, result);
     }
 
+    @ParameterizedTest
+    @MethodSource("provideTurnRightParameters")
+    public void shouldHaveTheCorrectOrientationWhenTurningRight(final Orientation initialOrientation, final Orientation expectedOrientation) {
+        final Orientation result = initialOrientation.right();
+        assertEquals(expectedOrientation, result);
+    }
+
     private static Stream<Arguments> provideTurnLeftParameters() {
         return Stream.of(
                 Arguments.of(NORTH, WEST),
                 Arguments.of(WEST, SOUTH),
                 Arguments.of(SOUTH, EAST),
                 Arguments.of(EAST, NORTH)
+        );
+    }
+
+    private static Stream<Arguments> provideTurnRightParameters() {
+        return Stream.of(
+                Arguments.of(NORTH, EAST),
+                Arguments.of(EAST, SOUTH),
+                Arguments.of(SOUTH, WEST),
+                Arguments.of(WEST, NORTH)
         );
     }
 }
