@@ -13,4 +13,13 @@ public class TreasureTest {
 
         assertEquals(0, treasure.getChests());
     }
+
+    @Test
+    public void shouldBeCollectedManyTimes() {
+        Treasure treasure = new Treasure(3);
+        treasure.collected();
+        treasure.collected();
+
+        assertEquals(1, treasure.getChests());
+    }
 }
