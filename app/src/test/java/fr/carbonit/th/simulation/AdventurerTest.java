@@ -14,4 +14,14 @@ public class AdventurerTest {
 
         assertEquals(1, adventurer.getTreasures());
     }
+
+    @Test
+    public void shouldCollectManyTreasures() {
+        Adventurer adventurer = new Adventurer();
+        Treasure treasure = new Treasure();
+        adventurer.collect(treasure);
+        adventurer.collect(treasure);
+
+        assertEquals(2, adventurer.getTreasures());
+    }
 }
