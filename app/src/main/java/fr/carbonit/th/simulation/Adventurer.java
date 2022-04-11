@@ -9,7 +9,7 @@ public class Adventurer {
     }
 
     public void collect(Treasure treasure) {
-        treasures = 1;
+        treasures++;
     }
 
     public Integer getTreasures() {
