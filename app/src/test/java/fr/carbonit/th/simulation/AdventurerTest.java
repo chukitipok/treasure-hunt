@@ -24,4 +24,14 @@ public class AdventurerTest {
 
         assertEquals(2, adventurer.getTreasures());
     }
+
+    @Test
+    public void shouldNotCollectIfTreasureHasNoChest() {
+        Adventurer adventurer = new Adventurer();
+        Treasure treasure = new Treasure();
+        adventurer.collect(treasure);
+        adventurer.collect(treasure);
+
+        assertEquals(1, adventurer.getTreasures());
+    }
 }
