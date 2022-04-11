@@ -8,11 +8,15 @@ public class Treasure {
         chests = 1;
     }
 
+    public Treasure(Integer chests) {
+        this.chests = chests;
+    }
+
     public Integer getChests() {
         return chests;
     }
 
     public void collected() {
-        chests = 0;
+        chests--;
     }
 }
