@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class AdventurerTest {
 
     @Test
-    public void shouldIncrementTreasureCollected() {
+    public void shouldCollectOneTreasure() {
         Adventurer adventurer = new Adventurer();
         Treasure treasure = new Treasure();
         adventurer.collect(treasure);
