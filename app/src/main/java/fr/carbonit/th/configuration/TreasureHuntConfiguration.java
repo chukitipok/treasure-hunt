@@ -67,4 +67,8 @@ public class TreasureHuntConfiguration {
                 .map(command -> (Treasure) command.handle())
                 .collect(Collectors.toList());
     }
+
+    public HuntMap getMap() {
+        return map;
+    }
 }

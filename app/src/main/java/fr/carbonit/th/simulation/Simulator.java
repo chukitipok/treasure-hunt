@@ -13,6 +13,13 @@ public class Simulator {
 
     public Simulator(TreasureHuntConfiguration configuration) {
         map = new HashMap<>();
+
+        for (int i = 0; i < configuration.getMap().getRows(); i++) {
+            for (int j = 0; j < configuration.getMap().getColumns(); j++) {
+                UUID uuid = UUID.randomUUID();
+                map.put(new Coordinates(i, j), uuid);
+            }
+        }
     }
 
     public Map<Coordinates, UUID> getMap() {
