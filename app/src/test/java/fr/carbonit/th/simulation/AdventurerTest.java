@@ -18,7 +18,7 @@ public class AdventurerTest {
     @Test
     public void shouldCollectManyTreasures() {
         Adventurer adventurer = new Adventurer();
-        Treasure treasure = new Treasure();
+        Treasure treasure = new Treasure(2);
         adventurer.collect(treasure);
         adventurer.collect(treasure);
 
