@@ -18,6 +18,7 @@ public class Adventurer {
     }
 
     public void turnLeft() {
+        position = position.left();
     }
 
     public Integer getTreasures() {
