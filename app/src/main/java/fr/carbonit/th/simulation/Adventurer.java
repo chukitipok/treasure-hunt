@@ -29,7 +29,7 @@ public class Adventurer {
         Position newPosition = position.forward();
         Coordinates coordinates = newPosition.getCoordinates();
 
-        if (coordinates.getY() >= 0) {
+        if (coordinates.getX() >= 0 && coordinates.getY() >= 0) {
             position = newPosition;
         }
     }
