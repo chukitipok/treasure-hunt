@@ -26,7 +26,12 @@ public class Adventurer {
     }
 
     public void moveForward() {
-        position = position.forward();
+        Position newPosition = position.forward();
+        Coordinates coordinates = newPosition.getCoordinates();
+
+        if (coordinates.getY() >= 0) {
+            position = newPosition;
+        }
     }
 
     public Integer getTreasures() {
@@ -35,5 +40,12 @@ public class Adventurer {
 
     public Position getPosition() {
         return position;
+    }
+
+    public String toString() {
+        return "Adventurer{" +
+                "position=" + position +
+                ", treasures=" + treasures +
+                '}';
     }
 }
