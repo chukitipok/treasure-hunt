@@ -3,6 +3,7 @@ package fr.carbonit.th.simulation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -17,7 +18,7 @@ public class AdventurerTest {
     @BeforeEach
     public void init() {
         Position position = new Position(EAST, new Coordinates(0, 0));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new Action()));
+        Queue<Action> actions = new LinkedList<>(List.of(new TurnLeftAction(), new TurnRightAction()));
         adventurer = new Adventurer(position, actions);
     }
 
@@ -49,7 +50,7 @@ public class AdventurerTest {
 
     @Test
     public void shouldHaveInitialPosition() {
-        assertEquals(new Position(EAST, new Coordinates(1, 1)), adventurer.getPosition());
+        assertEquals(new Position(EAST, new Coordinates(0, 0)), adventurer.getPosition());
     }
 
     @Test
@@ -73,7 +74,7 @@ public class AdventurerTest {
     @Test
     public void shouldMoveForwardWithSouthOrientation() {
         Position position = new Position(SOUTH, new Coordinates(0, 0));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new Action()));
+        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer(position, actions);
         adventurer.moveForward();
 
@@ -83,7 +84,7 @@ public class AdventurerTest {
     @Test
     public void shouldMoveForwardWithWestOrientation() {
         Position position = new Position(WEST, new Coordinates(1, 0));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new Action()));
+        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer(position, actions);
         adventurer.moveForward();
 
@@ -93,7 +94,7 @@ public class AdventurerTest {
     @Test
     public void shouldMoveForwardWithNorthOrientation() {
         Position position = new Position(NORTH, new Coordinates(0, 1));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new Action()));
+        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer(position, actions);
         adventurer.moveForward();
 
@@ -103,7 +104,7 @@ public class AdventurerTest {
     @Test
     public void shouldNotMoveNegativeCoordinatesOnAxisX() {
         Position position = new Position(WEST, new Coordinates(0, 0));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new Action()));
+        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer(position, actions);
         adventurer.moveForward();
 
@@ -113,7 +114,7 @@ public class AdventurerTest {
     @Test
     public void shouldNotMoveNegativeCoordinatesOnAxisY() {
         Position position = new Position(NORTH, new Coordinates(0, 0));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new Action()));
+        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer(position, actions);
         adventurer.moveForward();
 
@@ -128,6 +129,10 @@ public class AdventurerTest {
 
     @Test
     public void shouldDoAdventurerTurnRightAfterExecutingAction() {
+        Position position = new Position(EAST, new Coordinates(0, 0));
+        Queue<Action> actions = new LinkedList<>(List.of(new TurnRightAction()));
+        adventurer = new Adventurer(position, actions);
+
         adventurer.executeAction();
         assertEquals(SOUTH, adventurer.getPosition().getOrientation());
     }
