@@ -73,4 +73,12 @@ public class AdventurerTest {
 
         assertEquals(new Position(SOUTH, new Coordinates(0, 1)), adventurer.getPosition());
     }
+
+    @Test
+    public void shouldMoveForwardWithWestOrientation() {
+        Adventurer adventurer = new Adventurer(new Position(WEST, new Coordinates(1, 0)));
+        adventurer.moveForward();
+
+        assertEquals(new Position(WEST, new Coordinates(0, 0)), adventurer.getPosition());
+    }
 }
