@@ -21,6 +21,9 @@ public class Adventurer {
         position = position.left();
     }
 
+    public void turnRight() {
+    }
+
     public Integer getTreasures() {
         return treasures;
     }
