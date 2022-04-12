@@ -17,6 +17,9 @@ public class Adventurer {
         }
     }
 
+    public void turnLeft() {
+    }
+
     public Integer getTreasures() {
         return treasures;
     }

@@ -24,6 +24,10 @@ public class Position {
         return new Position(orientation, orientation.forward(coordinates));
     }
 
+    public Orientation getOrientation() {
+        return orientation;
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
