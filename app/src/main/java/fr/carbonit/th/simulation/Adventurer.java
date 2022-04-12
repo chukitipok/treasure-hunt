@@ -2,10 +2,10 @@ package fr.carbonit.th.simulation;
 
 public class Adventurer {
 
-    private Coordinates position;
+    private Position position;
     private Integer treasures;
 
-    public Adventurer(Coordinates position) {
+    public Adventurer(Position position) {
         this.position = position;
         treasures = 0;
     }
@@ -21,7 +21,7 @@ public class Adventurer {
         return treasures;
     }
 
-    public Coordinates getPosition() {
+    public Position getPosition() {
         return position;
     }
 }
