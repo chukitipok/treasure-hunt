@@ -43,8 +43,8 @@ public class PositionTest {
 
     private static Stream<Arguments> provideForwardCalculationArguments() {
         return Stream.of(
-                Arguments.of(0, 0, NORTH, 0, 1),
-                Arguments.of(0, 1, SOUTH, 0, 0),
+                Arguments.of(0, 2, NORTH, 0, 1),
+                Arguments.of(0, 0, SOUTH, 0, 1),
                 Arguments.of(0, 0, EAST, 1, 0),
                 Arguments.of(1, 0, WEST, 0, 0)
         );
