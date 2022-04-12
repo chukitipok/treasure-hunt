@@ -125,4 +125,10 @@ public class AdventurerTest {
         adventurer.executeAction();
         assertEquals(NORTH, adventurer.getPosition().getOrientation());
     }
+
+    @Test
+    public void shouldDoAdventurerTurnRightAfterExecutingAction() {
+        adventurer.executeAction();
+        assertEquals(SOUTH, adventurer.getPosition().getOrientation());
+    }
 }
