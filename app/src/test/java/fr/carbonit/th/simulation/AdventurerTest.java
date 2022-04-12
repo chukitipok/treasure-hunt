@@ -41,4 +41,12 @@ public class AdventurerTest {
         Adventurer adventurer = new Adventurer(new Position(NORTH, new Coordinates(1, 1)));
         assertEquals(new Position(NORTH, new Coordinates(1, 1)), adventurer.getPosition());
     }
+
+    @Test
+    public void shouldTurnLeft() {
+        Adventurer adventurer = new Adventurer(new Position(NORTH, new Coordinates(3, 3)));
+        adventurer.turnLeft();
+
+        assertEquals(WEST, adventurer.getPosition().getOrientation());
+    }
 }
