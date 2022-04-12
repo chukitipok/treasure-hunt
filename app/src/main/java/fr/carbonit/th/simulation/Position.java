@@ -20,6 +20,10 @@ public class Position {
         return new Position(orientation.right(), coordinates);
     }
 
+    public Position forward() {
+        return null;
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
