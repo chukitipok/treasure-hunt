@@ -39,6 +39,8 @@ public class Adventurer {
     }
 
     public void executeAction() {
+        Action action = actions.peek();
+        action.execute(this);
     }
 
     public Integer getTreasures() {
