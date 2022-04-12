@@ -26,4 +26,8 @@ public enum Orientation {
             return NORTH;
         return Orientation.values()[this.ordinal() + 1];
     }
+
+    public Coordinates forward(Coordinates coordinates) {
+        return coordinates.add(offsetX, offsetY);
+    }
 }

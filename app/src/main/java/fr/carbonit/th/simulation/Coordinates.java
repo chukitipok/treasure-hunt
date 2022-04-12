@@ -3,22 +3,26 @@ package fr.carbonit.th.simulation;
 import java.util.Objects;
 
 public class Coordinates {
-    private final Integer offsetX;
-    private final Integer offsetY;
+    private final Integer x;
+    private final Integer y;
 
     public Coordinates(Integer x, Integer y) {
-        offsetX = x;
-        offsetY = y;
+        this.x = x;
+        this.y = y;
     }
 
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Coordinates position = (Coordinates) o;
-        return Objects.equals(offsetX, position.offsetX) && Objects.equals(offsetY, position.offsetY);
+        Coordinates coordinates = (Coordinates) o;
+        return Objects.equals(x, coordinates.x) && Objects.equals(y, coordinates.y);
     }
 
     public int hashCode() {
-        return Objects.hash(offsetX, offsetY);
+        return Objects.hash(x, y);
+    }
+
+    public Coordinates add(final int x, final int y) {
+        return new Coordinates(this.x + x, this.y + y);
     }
 }

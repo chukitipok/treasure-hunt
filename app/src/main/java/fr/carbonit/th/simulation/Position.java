@@ -21,7 +21,7 @@ public class Position {
     }
 
     public Position forward() {
-        return null;
+        return new Position(orientation, orientation.forward(coordinates));
     }
 
     public boolean equals(Object o) {
