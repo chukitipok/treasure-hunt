@@ -6,7 +6,7 @@ public class Adventurer {
 
     private Position position;
     private Integer treasures;
-    private Queue<Action> actions;
+    private final Queue<Action> actions;
 
     public Adventurer(Position position, Queue<Action> actions) {
         this.position = position;
@@ -39,8 +39,11 @@ public class Adventurer {
     }
 
     public void executeAction() {
-        Action action = actions.peek();
-        action.execute(this);
+        Action action = actions.poll();
+
+        if (action != null) {
+            action.execute(this);
+        }
     }
 
     public Integer getTreasures() {
@@ -51,14 +54,11 @@ public class Adventurer {
         return position;
     }
 
-    public Action getAction() {
-        return actions.peek();
-    }
-
     public String toString() {
         return "Adventurer{" +
                 "position=" + position +
                 ", treasures=" + treasures +
+                ", actions=" + actions +
                 '}';
     }
 }

@@ -1,7 +1,9 @@
 package fr.carbonit.th.simulation;
 
-public class Action {
-    public void execute(Adventurer adventurer) {
-        adventurer.turnLeft();
+public abstract class Action implements Comparable<Action> {
+    abstract void execute(Adventurer adventurer);
+
+    public int compareTo(Action action) {
+        return 1;
     }
 }
