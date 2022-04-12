@@ -38,4 +38,11 @@ public class Position {
     public int hashCode() {
         return Objects.hash(orientation, coordinates);
     }
+
+    public String toString() {
+        return "Position{" +
+                "orientation=" + orientation +
+                ", coordinates=" + coordinates +
+                '}';
+    }
 }

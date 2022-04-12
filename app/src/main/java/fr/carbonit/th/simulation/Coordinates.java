@@ -11,6 +11,10 @@ public class Coordinates {
         this.y = y;
     }
 
+    public Coordinates add(final int x, final int y) {
+        return new Coordinates(this.x + x, this.y + y);
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -22,7 +26,10 @@ public class Coordinates {
         return Objects.hash(x, y);
     }
 
-    public Coordinates add(final int x, final int y) {
-        return new Coordinates(this.x + x, this.y + y);
+    public String toString() {
+        return "Coordinates{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }
