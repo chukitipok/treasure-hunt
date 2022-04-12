@@ -136,4 +136,14 @@ public class AdventurerTest {
         adventurer.executeAction();
         assertEquals(SOUTH, adventurer.getPosition().getOrientation());
     }
+
+    @Test
+    public void shouldDoAdventurerMoveForwardAfterExecutingAction() {
+        Position position = new Position(EAST, new Coordinates(0, 0));
+        Queue<Action> actions = new LinkedList<>(List.of(new MoveForwardAction()));
+        adventurer = new Adventurer(position, actions);
+
+        adventurer.executeAction();
+        assertEquals(new Position(EAST, new Coordinates(1, 0)), adventurer.getPosition());
+    }
 }
