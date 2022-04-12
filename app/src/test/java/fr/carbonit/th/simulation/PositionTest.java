@@ -14,4 +14,12 @@ public class PositionTest {
 
         assertEquals(new Position(WEST, new Coordinates(0, 0)), result);
     }
+
+    @Test
+    public void shouldTurnRight() {
+        final Position position = new Position(NORTH, new Coordinates(0, 0));
+        final Position result = position.right();
+
+        assertEquals(new Position(EAST, new Coordinates(0, 0)), result);
+    }
 }

@@ -26,4 +26,8 @@ public class Position {
     public int hashCode() {
         return Objects.hash(orientation, coordinates);
     }
+
+    public Position right() {
+        return null;
+    }
 }
