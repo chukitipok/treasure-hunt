@@ -89,4 +89,12 @@ public class AdventurerTest {
 
         assertEquals(new Position(NORTH, new Coordinates(0, 0)), adventurer.getPosition());
     }
+
+    @Test
+    public void shouldNotMoveNegativeCoordinatesOnAxisX() {
+        Adventurer adventurer = new Adventurer(new Position(NORTH, new Coordinates(0, 0)));
+        adventurer.moveForward();
+
+        assertEquals(new Position(NORTH, new Coordinates(0, 0)), adventurer.getPosition());
+    }
 }
