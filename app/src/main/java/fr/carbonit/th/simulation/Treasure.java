@@ -3,9 +3,9 @@ package fr.carbonit.th.simulation;
 public class Treasure {
 
     private Integer chests;
-    private final Position position;
+    private final Coordinates position;
 
-    public Treasure(Integer chests, Position position) {
+    public Treasure(Integer chests, Coordinates position) {
         this.chests = chests;
         this.position = position;
     }
@@ -24,7 +24,7 @@ public class Treasure {
         return chests;
     }
 
-    public Position getPosition() {
+    public Coordinates getPosition() {
         return position;
     }
 }

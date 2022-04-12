@@ -8,8 +8,8 @@ public class AdventurerTest {
 
     @Test
     public void shouldCollectOneTreasure() {
-        Adventurer adventurer = new Adventurer();
-        Treasure treasure = new Treasure(1, new Position(0, 0));
+        Adventurer adventurer = new Adventurer(new Coordinates(1, 1));
+        Treasure treasure = new Treasure(1, new Coordinates(0, 0));
         adventurer.collect(treasure);
 
         assertEquals(1, adventurer.getTreasures());
@@ -17,8 +17,8 @@ public class AdventurerTest {
 
     @Test
     public void shouldCollectManyTreasures() {
-        Adventurer adventurer = new Adventurer();
-        Treasure treasure = new Treasure(2, new Position(0, 0));
+        Adventurer adventurer = new Adventurer(new Coordinates(1, 1));
+        Treasure treasure = new Treasure(2, new Coordinates(0, 0));
         adventurer.collect(treasure);
         adventurer.collect(treasure);
 
@@ -27,11 +27,17 @@ public class AdventurerTest {
 
     @Test
     public void shouldNotCollectIfTreasureHasNoChest() {
-        Adventurer adventurer = new Adventurer();
-        Treasure treasure = new Treasure(1, new Position(0, 0));
+        Adventurer adventurer = new Adventurer(new Coordinates(1, 1));
+        Treasure treasure = new Treasure(1, new Coordinates(0, 0));
         adventurer.collect(treasure);
         adventurer.collect(treasure);
 
         assertEquals(1, adventurer.getTreasures());
+    }
+
+    @Test
+    public void shouldHaveInitialPosition() {
+        Adventurer adventurer = new Adventurer(new Coordinates(1, 1));
+        assertEquals(new Coordinates(1, 1), adventurer.getPosition());
     }
 }
