@@ -16,6 +16,10 @@ public class Position {
         return new Position(orientation.left(), coordinates);
     }
 
+    public Position right() {
+        return new Position(orientation.right(), coordinates);
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -25,9 +29,5 @@ public class Position {
 
     public int hashCode() {
         return Objects.hash(orientation, coordinates);
-    }
-
-    public Position right() {
-        return null;
     }
 }
