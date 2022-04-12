@@ -91,7 +91,7 @@ public class AdventurerTest {
     }
 
     @Test
-    public void shouldNotMoveNegativeCoordinatesOnAxisX() {
+    public void shouldNotMoveNegativeCoordinatesOnAxisY() {
         Adventurer adventurer = new Adventurer(new Position(NORTH, new Coordinates(0, 0)));
         adventurer.moveForward();
 

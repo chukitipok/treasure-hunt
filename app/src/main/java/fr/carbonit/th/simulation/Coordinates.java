@@ -15,6 +15,10 @@ public class Coordinates {
         return new Coordinates(this.x + x, this.y + y);
     }
 
+    public Integer getY() {
+        return y;
+    }
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
