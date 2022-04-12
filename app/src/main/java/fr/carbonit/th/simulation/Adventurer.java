@@ -1,12 +1,16 @@
 package fr.carbonit.th.simulation;
 
+import java.util.Queue;
+
 public class Adventurer {
 
     private Position position;
     private Integer treasures;
+    private Queue<Action> actions;
 
-    public Adventurer(Position position) {
+    public Adventurer(Position position, Queue<Action> actions) {
         this.position = position;
+        this.actions = actions;
         treasures = 0;
     }
 
@@ -34,12 +38,19 @@ public class Adventurer {
         }
     }
 
+    public void executeAction() {
+    }
+
     public Integer getTreasures() {
         return treasures;
     }
 
     public Position getPosition() {
         return position;
+    }
+
+    public Action getAction() {
+        return actions.peek();
     }
 
     public String toString() {
