@@ -104,7 +104,7 @@ public class TreasureMapTest {
         UUID id1After = map.getCells().get(position1);
         UUID id2After = map.getCells().get(position2);
 
-        assertThat(id1After.equals(id2Before) && id2After.equals(id1Before)).isEqualTo(true);
+        assertTrue(id1After.equals(id2Before) && id2After.equals(id1Before));
     }
 
     @Test
