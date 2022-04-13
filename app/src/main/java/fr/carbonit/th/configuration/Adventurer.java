@@ -15,4 +15,20 @@ public class Adventurer {
         this.orientation = orientation;
         this.actions = actions;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Coordinates getPosition() {
+        return position;
+    }
+
+    public String getOrientation() {
+        return orientation;
+    }
+
+    public String getActions() {
+        return actions;
+    }
 }

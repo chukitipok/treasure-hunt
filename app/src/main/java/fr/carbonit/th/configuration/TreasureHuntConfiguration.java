@@ -71,4 +71,16 @@ public class TreasureHuntConfiguration {
     public HuntMap getMap() {
         return map;
     }
+
+    public List<Adventurer> getAdventurers() {
+        return adventurers;
+    }
+
+    public List<Mountain> getMountains() {
+        return mountains;
+    }
+
+    public List<Treasure> getTreasures() {
+        return treasures;
+    }
 }

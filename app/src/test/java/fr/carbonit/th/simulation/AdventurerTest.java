@@ -19,7 +19,7 @@ public class AdventurerTest {
     public void init() {
         Position position = new Position(EAST, new Coordinates(0, 0));
         Queue<Action> actions = new LinkedList<>(List.of(new TurnLeftAction(), new TurnRightAction()));
-        adventurer = new Adventurer(position, actions);
+        adventurer = new Adventurer("Lara", position, actions);
     }
 
     @Test
@@ -75,7 +75,7 @@ public class AdventurerTest {
     public void shouldMoveForwardWithSouthOrientation() {
         Position position = new Position(SOUTH, new Coordinates(0, 0));
         Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
-        adventurer = new Adventurer(position, actions);
+        adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
         assertEquals(new Position(SOUTH, new Coordinates(0, 1)), adventurer.getPosition());
@@ -85,7 +85,7 @@ public class AdventurerTest {
     public void shouldMoveForwardWithWestOrientation() {
         Position position = new Position(WEST, new Coordinates(1, 0));
         Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
-        adventurer = new Adventurer(position, actions);
+        adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
         assertEquals(new Position(WEST, new Coordinates(0, 0)), adventurer.getPosition());
@@ -95,7 +95,7 @@ public class AdventurerTest {
     public void shouldMoveForwardWithNorthOrientation() {
         Position position = new Position(NORTH, new Coordinates(0, 1));
         Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
-        adventurer = new Adventurer(position, actions);
+        adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
         assertEquals(new Position(NORTH, new Coordinates(0, 0)), adventurer.getPosition());
@@ -105,7 +105,7 @@ public class AdventurerTest {
     public void shouldNotMoveNegativeCoordinatesOnAxisX() {
         Position position = new Position(WEST, new Coordinates(0, 0));
         Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
-        adventurer = new Adventurer(position, actions);
+        adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
         assertEquals(new Position(WEST, new Coordinates(0, 0)), adventurer.getPosition());
@@ -115,7 +115,7 @@ public class AdventurerTest {
     public void shouldNotMoveNegativeCoordinatesOnAxisY() {
         Position position = new Position(NORTH, new Coordinates(0, 0));
         Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
-        adventurer = new Adventurer(position, actions);
+        adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
         assertEquals(new Position(NORTH, new Coordinates(0, 0)), adventurer.getPosition());
@@ -131,7 +131,7 @@ public class AdventurerTest {
     public void shouldDoAdventurerTurnRightAfterExecutingAction() {
         Position position = new Position(EAST, new Coordinates(0, 0));
         Queue<Action> actions = new LinkedList<>(List.of(new TurnRightAction()));
-        adventurer = new Adventurer(position, actions);
+        adventurer = new Adventurer("Lara", position, actions);
 
         adventurer.executeAction();
         assertEquals(SOUTH, adventurer.getPosition().getOrientation());
@@ -141,7 +141,7 @@ public class AdventurerTest {
     public void shouldDoAdventurerMoveForwardAfterExecutingAction() {
         Position position = new Position(EAST, new Coordinates(0, 0));
         Queue<Action> actions = new LinkedList<>(List.of(new MoveForwardAction()));
-        adventurer = new Adventurer(position, actions);
+        adventurer = new Adventurer("Lara", position, actions);
 
         adventurer.executeAction();
         assertEquals(new Position(EAST, new Coordinates(1, 0)), adventurer.getPosition());

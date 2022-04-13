@@ -2,6 +2,7 @@ package fr.carbonit.th.simulation;
 
 import fr.carbonit.th.configuration.TreasureHuntConfiguration;
 import fr.carbonit.th.provider.ConfigurationProvider;
+import fr.carbonit.th.simulation.mappers.TreasureMapMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,7 +20,7 @@ public class TreasureMapTest {
     @BeforeEach
     public void init() {
         TreasureHuntConfiguration configuration = provider.provide();
-        map = new TreasureMap(configuration);
+        map = new TreasureMapMapper().map(configuration);
     }
 
     @Test

@@ -16,4 +16,12 @@ public class Treasure {
         this.position = position;
         this.chests = chests;
     }
+
+    public Coordinates getPosition() {
+        return position;
+    }
+
+    public Integer getChests() {
+        return chests;
+    }
 }

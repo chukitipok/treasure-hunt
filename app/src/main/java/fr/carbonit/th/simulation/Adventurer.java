@@ -1,17 +1,22 @@
 package fr.carbonit.th.simulation;
 
 import java.util.Queue;
+import java.util.UUID;
 
 public class Adventurer {
 
+    private final UUID uuid;
+    private final String name;
     private Position position;
     private Integer treasures;
     private final Queue<Action> actions;
 
-    public Adventurer(Position position, Queue<Action> actions) {
+    public Adventurer(String name, Position position, Queue<Action> actions) {
+        this.name = name;
         this.position = position;
         this.actions = actions;
         treasures = 0;
+        uuid = UUID.randomUUID();
     }
 
     public void collect(Treasure treasure) {
@@ -44,6 +49,18 @@ public class Adventurer {
         if (action != null) {
             action.execute(this);
         }
+    }
+
+    public UUID getId() {
+        return uuid;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Queue<Action> getActions() {
+        return actions;
     }
 
     public Integer getTreasures() {
