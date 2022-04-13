@@ -1,8 +1,8 @@
 package fr.carbonit.th.simulation;
 
-import fr.carbonit.th.simulation.localisation.Coordinates;
-import fr.carbonit.th.simulation.localisation.Orientation;
-import fr.carbonit.th.simulation.localisation.Position;
+import fr.carbonit.th.localisation.Coordinates;
+import fr.carbonit.th.localisation.Orientation;
+import fr.carbonit.th.localisation.Position;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -10,7 +10,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 import java.util.stream.Stream;
 
-import static fr.carbonit.th.simulation.localisation.Orientation.*;
+import static fr.carbonit.th.localisation.Orientation.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PositionTest {

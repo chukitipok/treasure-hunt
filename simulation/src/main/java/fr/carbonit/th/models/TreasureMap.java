@@ -1,6 +1,6 @@
-package fr.carbonit.th.simulation.models;
+package fr.carbonit.th.models;
 
-import fr.carbonit.th.simulation.localisation.Coordinates;
+import fr.carbonit.th.localisation.Coordinates;
 
 import java.util.*;
 import java.util.stream.Collectors;

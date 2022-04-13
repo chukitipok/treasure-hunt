@@ -1,4 +1,4 @@
-package fr.carbonit.th.simulation.localisation;
+package fr.carbonit.th.localisation;
 
 import java.util.Objects;
 

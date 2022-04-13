@@ -1,6 +1,6 @@
-package fr.carbonit.th.simulation.actions;
+package fr.carbonit.th.actions;
 
-import fr.carbonit.th.simulation.models.Adventurer;
+import fr.carbonit.th.models.Adventurer;
 
 public abstract class Action implements Comparable<Action> {
     public abstract void execute(Adventurer adventurer);

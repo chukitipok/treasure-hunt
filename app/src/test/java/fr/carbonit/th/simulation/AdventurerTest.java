@@ -1,13 +1,13 @@
 package fr.carbonit.th.simulation;
 
-import fr.carbonit.th.simulation.actions.Action;
-import fr.carbonit.th.simulation.actions.MoveForwardAction;
-import fr.carbonit.th.simulation.actions.TurnLeftAction;
-import fr.carbonit.th.simulation.actions.TurnRightAction;
-import fr.carbonit.th.simulation.models.Adventurer;
-import fr.carbonit.th.simulation.localisation.Coordinates;
-import fr.carbonit.th.simulation.localisation.Position;
-import fr.carbonit.th.simulation.models.Treasure;
+import fr.carbonit.th.actions.Action;
+import fr.carbonit.th.actions.MoveForwardAction;
+import fr.carbonit.th.actions.TurnLeftAction;
+import fr.carbonit.th.actions.TurnRightAction;
+import fr.carbonit.th.models.Adventurer;
+import fr.carbonit.th.localisation.Coordinates;
+import fr.carbonit.th.localisation.Position;
+import fr.carbonit.th.models.Treasure;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import static fr.carbonit.th.simulation.localisation.Orientation.*;
+import static fr.carbonit.th.localisation.Orientation.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AdventurerTest {

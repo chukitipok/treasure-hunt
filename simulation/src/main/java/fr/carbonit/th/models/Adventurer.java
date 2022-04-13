@@ -1,8 +1,8 @@
-package fr.carbonit.th.simulation.models;
+package fr.carbonit.th.models;
 
-import fr.carbonit.th.simulation.actions.Action;
-import fr.carbonit.th.simulation.localisation.Coordinates;
-import fr.carbonit.th.simulation.localisation.Position;
+import fr.carbonit.th.actions.Action;
+import fr.carbonit.th.localisation.Coordinates;
+import fr.carbonit.th.localisation.Position;
 
 import java.util.Queue;
 import java.util.UUID;

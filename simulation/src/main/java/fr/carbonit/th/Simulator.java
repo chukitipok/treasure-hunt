@@ -1,13 +1,13 @@
-package fr.carbonit.th.simulation;
+package fr.carbonit.th;
 
-import fr.carbonit.th.simulation.actions.Action;
-import fr.carbonit.th.simulation.actions.MoveForwardAction;
-import fr.carbonit.th.simulation.actions.TurnLeftAction;
-import fr.carbonit.th.simulation.actions.TurnRightAction;
-import fr.carbonit.th.simulation.models.Adventurer;
-import fr.carbonit.th.simulation.localisation.Coordinates;
-import fr.carbonit.th.simulation.models.Treasure;
-import fr.carbonit.th.simulation.models.TreasureMap;
+import fr.carbonit.th.actions.Action;
+import fr.carbonit.th.actions.MoveForwardAction;
+import fr.carbonit.th.actions.TurnLeftAction;
+import fr.carbonit.th.actions.TurnRightAction;
+import fr.carbonit.th.models.Adventurer;
+import fr.carbonit.th.localisation.Coordinates;
+import fr.carbonit.th.models.Treasure;
+import fr.carbonit.th.models.TreasureMap;
 
 import java.util.List;
 import java.util.Optional;

@@ -1,6 +1,6 @@
-package fr.carbonit.th.simulation.actions;
+package fr.carbonit.th.actions;
 
-import fr.carbonit.th.simulation.models.Adventurer;
+import fr.carbonit.th.models.Adventurer;
 
 public class MoveForwardAction extends Action {
 

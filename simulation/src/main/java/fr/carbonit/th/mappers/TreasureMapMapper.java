@@ -1,12 +1,12 @@
-package fr.carbonit.th.simulation.mappers;
+package fr.carbonit.th.mappers;
 
 import fr.carbonit.th.configuration.HuntMap;
 import fr.carbonit.th.configuration.TreasureHuntConfiguration;
-import fr.carbonit.th.simulation.models.Adventurer;
-import fr.carbonit.th.simulation.localisation.Coordinates;
-import fr.carbonit.th.simulation.models.Mountain;
-import fr.carbonit.th.simulation.models.Treasure;
-import fr.carbonit.th.simulation.models.TreasureMap;
+import fr.carbonit.th.models.Adventurer;
+import fr.carbonit.th.localisation.Coordinates;
+import fr.carbonit.th.models.Mountain;
+import fr.carbonit.th.models.Treasure;
+import fr.carbonit.th.models.TreasureMap;
 
 import java.util.*;
 
