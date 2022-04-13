@@ -2,7 +2,6 @@ package fr.carbonit.th.command;
 
 import fr.carbonit.th.configuration.HuntMap;
 import fr.carbonit.th.configuration.exceptions.InvalidMapException;
-import org.assertj.core.api.ThrowableAssert;
 import org.assertj.core.api.ThrowableAssert.ThrowingCallable;
 import org.junit.jupiter.api.Test;
 

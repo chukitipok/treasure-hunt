@@ -11,6 +11,7 @@
     <modules>
         <module>app</module>
         <module>simulation</module>
+        <module>reader</module>
     </modules>
 
     <packaging>pom</packaging>

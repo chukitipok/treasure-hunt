@@ -1,6 +1,5 @@
 package fr.carbonit.th.configuration;
 
-import fr.carbonit.th.command.*;
 import fr.carbonit.th.configuration.exceptions.HuntMapNotFoundException;
 import fr.carbonit.th.configuration.exceptions.InvalidTreasureHuntConfiguration;
 import org.junit.jupiter.api.BeforeEach;
