@@ -15,7 +15,7 @@ public class ApplicationTest {
 
     @Test
     public void shouldAlertIfArgsAreMoreThanOne() {
-        ThrowingCallable callable = () -> Application.main(new String[0]);
+        ThrowingCallable callable = () -> Application.main(new String[2]);
         assertThatExceptionOfType(TooManyParametersException.class).isThrownBy(callable);
     }
 }
