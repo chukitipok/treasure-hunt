@@ -82,13 +82,13 @@ public class TreasureMapTest {
 
     @Test
     public void shouldNotHaveAMountainAtCell2_0() {
-        Coordinates key = new Coordinates(1, 0);
+        Coordinates key = new Coordinates(2, 0);
         assertFalse(map.containsMountainAt(key));
     }
 
     @Test
     public void shouldHaveAMountainAtCell1_0() {
-        Coordinates key = new Coordinates(1, 3);
+        Coordinates key = new Coordinates(1, 0);
         assertTrue(map.containsMountainAt(key));
     }
 
