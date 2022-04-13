@@ -37,7 +37,7 @@ public class TreasureMap {
 
     public boolean containsMountainAt(Coordinates key) {
         UUID cellValue = cells.get(key);
-        List<UUID> ids = treasures.stream().map(Treasure::getId).collect(Collectors.toList());
+        List<UUID> ids = mountains.stream().map(Mountain::getId).collect(Collectors.toList());
 
         return ids.contains(cellValue);
     }
