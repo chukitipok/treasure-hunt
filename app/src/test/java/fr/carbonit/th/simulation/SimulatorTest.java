@@ -21,7 +21,7 @@ public class SimulatorTest {
 
     @Test
     public void shouldAdventurerHaveCollected3Treasures() {
-        TreasureHuntConfiguration configuration = provider.provide();
+        TreasureHuntConfiguration configuration = provider.provideFullSimulation();
         TreasureMap map = simulator.simulate(mapper.map(configuration));
         Adventurer adventurer = map.getAdventurers().get(0);
 

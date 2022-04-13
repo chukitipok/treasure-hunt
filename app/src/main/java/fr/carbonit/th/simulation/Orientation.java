@@ -28,6 +28,6 @@ public enum Orientation {
     }
 
     public Coordinates forward(Coordinates coordinates) {
-        return coordinates.add(offsetX, offsetY);
+        return coordinates.add(offsetX ,offsetY);
     }
 }

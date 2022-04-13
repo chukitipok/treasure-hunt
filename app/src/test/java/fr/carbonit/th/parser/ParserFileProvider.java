@@ -30,6 +30,9 @@ public class ParserFileProvider implements FileProvider<ParserFileType> {
             case ADVENTURER_BLOCK:
                 file = new File("src/test/resources/fixtures/parser/blocked_by_adventurer.txt");
                 break;
+            case FULL_SIMULATION_ONE_PLAYER:
+                file = new File("src/test/resources/fixtures/parser/full_simulation_one_player.txt");
+                break;
             default:
                 file = new File("src/test/resources/fixtures/parser/input.txt");
                 break;

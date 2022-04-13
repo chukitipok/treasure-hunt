@@ -8,4 +8,5 @@ public enum ParserFileType {
     COLLECT_TREASURE,
     MOUNTAIN_BLOCK,
     ADVENTURER_BLOCK,
+    FULL_SIMULATION_ONE_PLAYER,
 }

@@ -29,4 +29,9 @@ public class ConfigurationProvider {
         ConfigurationParser parser = new ConfigurationParser(new ConfigurationReader());
         return parser.parse(fileProvider.provide(ParserFileType.ADVENTURER_BLOCK));
     }
+
+    public TreasureHuntConfiguration provideFullSimulation() {
+        ConfigurationParser parser = new ConfigurationParser(new ConfigurationReader());
+        return parser.parse(fileProvider.provide(ParserFileType.FULL_SIMULATION_ONE_PLAYER));
+    }
 }

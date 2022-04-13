@@ -12,7 +12,7 @@ public class Coordinates {
     }
 
     public Coordinates add(final int x, final int y) {
-        return new Coordinates(this.x + x, this.y + y);
+        return new Coordinates(this.x + y, this.y + x);
     }
 
     public Integer getX() {

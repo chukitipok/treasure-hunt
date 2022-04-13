@@ -65,4 +65,12 @@ public class TreasureMap {
     public List<Adventurer> getAdventurers() {
         return adventurers;
     }
+
+    public List<Mountain> getMountains() {
+        return mountains;
+    }
+
+    public List<Treasure> getTreasures() {
+        return treasures;
+    }
 }
