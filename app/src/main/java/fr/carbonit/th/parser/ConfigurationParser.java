@@ -5,6 +5,7 @@ import fr.carbonit.th.command.Command;
 import fr.carbonit.th.command.CommandFactory;
 import fr.carbonit.th.command.InvalidCommandException;
 import fr.carbonit.th.reader.Reader;
+import fr.carbonit.th.reader.UnreadableFileException;
 
 import java.io.File;
 import java.util.*;
@@ -30,7 +31,7 @@ public class ConfigurationParser {
 
             return new TreasureHuntConfiguration(commands);
         }
-        catch (InvalidCommandException exception) {
+        catch (InvalidCommandException | UnreadableFileException exception) {
             throw new UnparsableFileException();
         }
     }
