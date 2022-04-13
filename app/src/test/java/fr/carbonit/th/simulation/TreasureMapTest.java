@@ -95,7 +95,7 @@ public class TreasureMapTest {
     @Test
     public void shouldSwapCellsValues() {
         Coordinates position1 = new Coordinates(1, 1);
-        Coordinates position2 = new Coordinates(3, 1);
+        Coordinates position2 = new Coordinates(2, 2);
         UUID id1Before = map.getCells().get(position1);
         UUID id2Before = map.getCells().get(position2);
 

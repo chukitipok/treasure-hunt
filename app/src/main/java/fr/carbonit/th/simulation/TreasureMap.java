@@ -43,6 +43,12 @@ public class TreasureMap {
     }
 
     public void swap(Coordinates position1, Coordinates position2) {
+        UUID temporary = cells.get(position1);
+        cells.remove(position1);
 
+        cells.put(position1, cells.get(position2));
+        cells.remove(position2);
+
+        cells.put(position2, temporary);
     }
 }
