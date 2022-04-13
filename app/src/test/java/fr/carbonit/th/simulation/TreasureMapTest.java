@@ -64,4 +64,10 @@ public class TreasureMapTest {
         Coordinates key = new Coordinates(1, 0);
         assertFalse(map.containsAdventurerAt(key));
     }
+
+    @Test
+    public void shouldNotHaveATreasureAtCell1_0() {
+        Coordinates key = new Coordinates(1, 0);
+        assertFalse(map.containsTreasureAt(key));
+    }
 }
