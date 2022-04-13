@@ -1,8 +1,5 @@
 package fr.carbonit.th.simulation;
 
-import fr.carbonit.th.configuration.TreasureHuntConfiguration;
-import fr.carbonit.th.simulation.mappers.AdventurerMapper;
-
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -27,6 +24,13 @@ public class TreasureMap {
     public boolean containsAdventurerAt(Coordinates key) {
         UUID cellValue = cells.get(key);
         List<UUID> ids = adventurers.stream().map(Adventurer::getId).collect(Collectors.toList());
+
+        return ids.contains(cellValue);
+    }
+
+    public boolean containsTreasureAt(Coordinates key) {
+        UUID cellValue = cells.get(key);
+        List<UUID> ids = treasures.stream().map(Treasure::getId).collect(Collectors.toList());
 
         return ids.contains(cellValue);
     }
