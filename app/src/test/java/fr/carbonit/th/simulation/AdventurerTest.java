@@ -68,7 +68,7 @@ public class AdventurerTest {
     @Test
     public void shouldMoveForwardWithEastOrientation() {
         adventurer.moveForward();
-        assertEquals(new Position(EAST, new Coordinates(1, 0)), adventurer.getPosition());
+        assertEquals(new Position(EAST, new Coordinates(0, 1)), adventurer.getPosition());
     }
 
     @Test
@@ -78,12 +78,12 @@ public class AdventurerTest {
         adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
-        assertEquals(new Position(SOUTH, new Coordinates(0, 1)), adventurer.getPosition());
+        assertEquals(new Position(SOUTH, new Coordinates(1, 0)), adventurer.getPosition());
     }
 
     @Test
     public void shouldMoveForwardWithWestOrientation() {
-        Position position = new Position(WEST, new Coordinates(1, 0));
+        Position position = new Position(WEST, new Coordinates(0, 1));
         Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
@@ -93,7 +93,7 @@ public class AdventurerTest {
 
     @Test
     public void shouldMoveForwardWithNorthOrientation() {
-        Position position = new Position(NORTH, new Coordinates(0, 1));
+        Position position = new Position(NORTH, new Coordinates(1, 0));
         Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
@@ -144,6 +144,6 @@ public class AdventurerTest {
         adventurer = new Adventurer("Lara", position, actions);
 
         adventurer.executeAction();
-        assertEquals(new Position(EAST, new Coordinates(1, 0)), adventurer.getPosition());
+        assertEquals(new Position(EAST, new Coordinates(0, 1)), adventurer.getPosition());
     }
 }
