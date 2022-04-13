@@ -2,7 +2,7 @@ package fr.carbonit.th;
 
 public class NoParameterException extends RuntimeException {
 
-    private NoParameterException() {
+    public NoParameterException() {
         super("No parameter given in arguments.");
     }
 }
