@@ -4,6 +4,10 @@ import fr.carbonit.th.simulation.actions.Action;
 import fr.carbonit.th.simulation.actions.MoveForwardAction;
 import fr.carbonit.th.simulation.actions.TurnLeftAction;
 import fr.carbonit.th.simulation.actions.TurnRightAction;
+import fr.carbonit.th.simulation.models.Adventurer;
+import fr.carbonit.th.simulation.localisation.Coordinates;
+import fr.carbonit.th.simulation.models.Treasure;
+import fr.carbonit.th.simulation.models.TreasureMap;
 
 import java.util.List;
 import java.util.Optional;

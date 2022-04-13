@@ -1,10 +1,13 @@
 package fr.carbonit.th.simulation.mappers;
 
-import fr.carbonit.th.simulation.*;
 import fr.carbonit.th.simulation.actions.Action;
 import fr.carbonit.th.simulation.actions.MoveForwardAction;
 import fr.carbonit.th.simulation.actions.TurnLeftAction;
 import fr.carbonit.th.simulation.actions.TurnRightAction;
+import fr.carbonit.th.simulation.models.Adventurer;
+import fr.carbonit.th.simulation.localisation.Coordinates;
+import fr.carbonit.th.simulation.localisation.Orientation;
+import fr.carbonit.th.simulation.localisation.Position;
 
 import java.util.LinkedList;
 import java.util.Queue;

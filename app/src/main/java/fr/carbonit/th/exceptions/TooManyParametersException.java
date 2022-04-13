@@ -1,4 +1,4 @@
-package fr.carbonit.th;
+package fr.carbonit.th.exceptions;
 
 public class TooManyParametersException extends RuntimeException {
 

@@ -1,5 +1,7 @@
 package fr.carbonit.th.simulation;
 
+import fr.carbonit.th.simulation.localisation.Coordinates;
+import fr.carbonit.th.simulation.models.Treasure;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

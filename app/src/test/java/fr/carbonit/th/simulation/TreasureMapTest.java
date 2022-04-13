@@ -2,7 +2,10 @@ package fr.carbonit.th.simulation;
 
 import fr.carbonit.th.configuration.TreasureHuntConfiguration;
 import fr.carbonit.th.provider.ConfigurationProvider;
+import fr.carbonit.th.simulation.models.Adventurer;
+import fr.carbonit.th.simulation.localisation.Coordinates;
 import fr.carbonit.th.simulation.mappers.TreasureMapMapper;
+import fr.carbonit.th.simulation.models.TreasureMap;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
