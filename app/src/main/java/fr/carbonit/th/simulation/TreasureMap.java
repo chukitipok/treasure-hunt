@@ -17,10 +17,6 @@ public class TreasureMap {
         this.treasures = treasures;
     }
 
-    public Map<Coordinates, UUID> getCells() {
-        return cells;
-    }
-
     public boolean containsAdventurerAt(Coordinates key) {
         UUID cellValue = cells.get(key);
         List<UUID> ids = adventurers.stream().map(Adventurer::getId).collect(Collectors.toList());
@@ -50,5 +46,18 @@ public class TreasureMap {
         cells.remove(position2);
 
         cells.put(position2, temporary);
+    }
+
+    public boolean canMoveForward(Adventurer adventurer) {
+        Coordinates target = adventurer.getPosition().forward().getCoordinates();
+        return !containsAdventurerAt(target) && !containsMountainAt(target);
+    }
+
+    public Map<Coordinates, UUID> getCells() {
+        return cells;
+    }
+
+    public List<Adventurer> getAdventurers() {
+        return adventurers;
     }
 }
