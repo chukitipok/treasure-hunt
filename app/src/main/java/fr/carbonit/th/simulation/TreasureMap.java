@@ -34,4 +34,11 @@ public class TreasureMap {
 
         return ids.contains(cellValue);
     }
+
+    public boolean containsMountainAt(Coordinates key) {
+        UUID cellValue = cells.get(key);
+        List<UUID> ids = treasures.stream().map(Treasure::getId).collect(Collectors.toList());
+
+        return ids.contains(cellValue);
+    }
 }
