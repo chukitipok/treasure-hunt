@@ -12,4 +12,10 @@ public class ApplicationTest {
         ThrowingCallable callable = () -> Application.main(new String[0]);
         assertThatExceptionOfType(NoParameterException.class).isThrownBy(callable);
     }
+
+    @Test
+    public void shouldAlertIfArgsAreMoreThanOne() {
+        ThrowingCallable callable = () -> Application.main(new String[0]);
+        assertThatExceptionOfType(TooManyParametersException.class).isThrownBy(callable);
+    }
 }
