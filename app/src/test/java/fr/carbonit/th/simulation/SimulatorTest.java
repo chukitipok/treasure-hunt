@@ -27,4 +27,13 @@ public class SimulatorTest {
 
         assertEquals(3, adventurer.getTreasures());
     }
+
+    @Test
+    public void shouldAdventurerBeAtCoordinates0_3() {
+        TreasureHuntConfiguration configuration = provider.provideFullSimulation();
+        TreasureMap map = simulator.simulate(mapper.map(configuration));
+        Adventurer adventurer = map.getAdventurers().get(0);
+
+        assertEquals(new Coordinates(0, 3), adventurer.getPosition().getCoordinates());
+    }
 }
