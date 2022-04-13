@@ -70,4 +70,10 @@ public class TreasureMapTest {
         Coordinates key = new Coordinates(1, 0);
         assertFalse(map.containsTreasureAt(key));
     }
+
+    @Test
+    public void shouldHaveATreasureAtCell1_3() {
+        Coordinates key = new Coordinates(1, 3);
+        assertTrue(map.containsTreasureAt(key));
+    }
 }
