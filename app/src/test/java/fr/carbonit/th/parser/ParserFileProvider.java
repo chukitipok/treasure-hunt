@@ -27,6 +27,9 @@ public class ParserFileProvider implements FileProvider<ParserFileType> {
             case MOUNTAIN_BLOCK:
                 file = new File("src/test/resources/fixtures/parser/blocked_by_mountain.txt");
                 break;
+            case ADVENTURER_BLOCK:
+                file = new File("src/test/resources/fixtures/parser/blocked_by_adventurer.txt");
+                break;
             default:
                 file = new File("src/test/resources/fixtures/parser/input.txt");
                 break;
