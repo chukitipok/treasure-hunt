@@ -127,6 +127,6 @@ public class TreasureMapTest {
         map = new TreasureMapMapper().map(configuration);
         Adventurer adventurer = map.getAdventurers().get(0);
 
-        assertTrue(map.canMoveForward(adventurer));
+        assertFalse(map.canMoveForward(adventurer));
     }
 }
