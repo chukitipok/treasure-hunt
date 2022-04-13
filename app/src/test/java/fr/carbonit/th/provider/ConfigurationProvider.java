@@ -19,4 +19,9 @@ public class ConfigurationProvider {
         ConfigurationParser parser = new ConfigurationParser(new ConfigurationReader());
         return parser.parse(fileProvider.provide(ParserFileType.COLLECT_TREASURE));
     }
+
+    public TreasureHuntConfiguration provideBlockedByMountain() {
+        ConfigurationParser parser = new ConfigurationParser(new ConfigurationReader());
+        return parser.parse(fileProvider.provide(ParserFileType.MOUNTAIN_BLOCK));
+    }
 }

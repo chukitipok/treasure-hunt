@@ -120,4 +120,13 @@ public class TreasureMapTest {
 
         assertTrue(map.canCollectTreasure(adventurer));
     }
+
+    @Test
+    public void shouldNotAllowAdventurerToMoveTowardsPositionIfBlockedByMountain() {
+        TreasureHuntConfiguration configuration = provider.provideBlockedByMountain();
+        map = new TreasureMapMapper().map(configuration);
+        Adventurer adventurer = map.getAdventurers().get(0);
+
+        assertTrue(map.canMoveForward(adventurer));
+    }
 }
