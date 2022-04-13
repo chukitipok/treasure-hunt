@@ -23,4 +23,8 @@ public class TreasureMap {
     public Map<Coordinates, UUID> getCells() {
         return cells;
     }
+
+    public boolean containsAdventurerAt(Coordinates key) {
+        return true;
+    }
 }
