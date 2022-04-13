@@ -1,4 +1,4 @@
-package fr.carbonit.th.simulation;
+package fr.carbonit.th;
 
 import fr.carbonit.th.configuration.TreasureHuntConfiguration;
 import fr.carbonit.th.provider.ConfigurationProvider;

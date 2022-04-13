@@ -1,4 +1,4 @@
-package fr.carbonit.th.simulation;
+package fr.carbonit.th;
 
 import fr.carbonit.th.actions.Action;
 import fr.carbonit.th.actions.MoveForwardAction;
