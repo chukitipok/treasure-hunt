@@ -13,6 +13,10 @@ public class ConfigurationProvider {
     public TreasureHuntConfiguration provide() {
         ConfigurationParser parser = new ConfigurationParser(new ConfigurationReader());
         return parser.parse(fileProvider.provide(ParserFileType.VALID));
+    }
 
+    public TreasureHuntConfiguration provideCollectTreasure() {
+        ConfigurationParser parser = new ConfigurationParser(new ConfigurationReader());
+        return parser.parse(fileProvider.provide(ParserFileType.COLLECT_TREASURE));
     }
 }

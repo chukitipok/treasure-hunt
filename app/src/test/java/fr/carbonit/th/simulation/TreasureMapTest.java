@@ -8,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.UUID;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TreasureMapTest {
@@ -115,7 +114,10 @@ public class TreasureMapTest {
 
     @Test
     public void shouldAllowAdventurerToCollectTreasureIfLandOnIt() {
+        TreasureHuntConfiguration configuration = provider.provideCollectTreasure();
+        map = new TreasureMapMapper().map(configuration);
         Adventurer adventurer = map.getAdventurers().get(0);
+
         assertTrue(map.canCollectTreasure(adventurer));
     }
 }

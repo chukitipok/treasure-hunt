@@ -5,4 +5,5 @@ public enum ParserFileType {
     ROW_WITH_MORE_THAN_6_ITEMS,
     ROW_NOT_START_BY_LETTER_X,
     VALID,
+    COLLECT_TREASURE,
 }

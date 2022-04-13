@@ -21,6 +21,9 @@ public class ParserFileProvider implements FileProvider<ParserFileType> {
             case VALID:
                 file = new File("src/test/resources/fixtures/parser/valid_input_test.txt");
                 break;
+            case COLLECT_TREASURE:
+                file = new File("src/test/resources/fixtures/parser/collect_treasure_test.txt");
+                break;
             default:
                 file = new File("src/test/resources/fixtures/parser/input.txt");
                 break;
