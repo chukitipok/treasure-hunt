@@ -112,4 +112,10 @@ public class TreasureMapTest {
         Adventurer adventurer = map.getAdventurers().get(0);
         assertTrue(map.canMoveForward(adventurer));
     }
+
+    @Test
+    public void shouldAllowAdventurerToCollectTreasureIfLandOnIt() {
+        Adventurer adventurer = map.getAdventurers().get(0);
+        assertTrue(map.canCollectTreasure(adventurer));
+    }
 }
