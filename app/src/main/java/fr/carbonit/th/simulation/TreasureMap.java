@@ -41,4 +41,8 @@ public class TreasureMap {
 
         return ids.contains(cellValue);
     }
+
+    public void swap(Coordinates position1, Coordinates position2) {
+
+    }
 }

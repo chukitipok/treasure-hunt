@@ -6,6 +6,9 @@ import fr.carbonit.th.simulation.mappers.TreasureMapMapper;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.UUID;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class TreasureMapTest {
@@ -87,5 +90,21 @@ public class TreasureMapTest {
     public void shouldHaveAMountainAtCell1_0() {
         Coordinates key = new Coordinates(1, 3);
         assertTrue(map.containsMountainAt(key));
+    }
+
+    @Test
+    public void shouldSwapCellsValues() {
+        Coordinates position1 = new Coordinates(1, 1);
+        Coordinates position2 = new Coordinates(3, 1);
+        UUID id1Before = map.getCells().get(position1);
+        UUID id2Before = map.getCells().get(position2);
+
+        map.swap(position1, position2);
+
+        UUID id1After = map.getCells().get(position1);
+        UUID id2After = map.getCells().get(position2);
+
+        assertThat(id1After.equals(id2Before) && id2After.equals(id1Before)).isEqualTo(true);
+
     }
 }
