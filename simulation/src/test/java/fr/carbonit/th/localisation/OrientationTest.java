@@ -1,4 +1,4 @@
-package fr.carbonit.th;
+package fr.carbonit.th.localisation;
 
 import fr.carbonit.th.localisation.Orientation;
 import org.junit.jupiter.params.ParameterizedTest;

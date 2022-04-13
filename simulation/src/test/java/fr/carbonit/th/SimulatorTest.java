@@ -1,11 +1,11 @@
 package fr.carbonit.th;
 
 import fr.carbonit.th.configuration.TreasureHuntConfiguration;
-import fr.carbonit.th.provider.ConfigurationProvider;
-import fr.carbonit.th.models.Adventurer;
 import fr.carbonit.th.localisation.Coordinates;
 import fr.carbonit.th.mappers.TreasureMapMapper;
+import fr.carbonit.th.models.Adventurer;
 import fr.carbonit.th.models.TreasureMap;
+import fr.carbonit.th.provider.ConfigurationProvider;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

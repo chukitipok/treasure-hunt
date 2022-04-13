@@ -1,4 +1,4 @@
-package fr.carbonit.th;
+package fr.carbonit.th.models;
 
 import fr.carbonit.th.localisation.Coordinates;
 import fr.carbonit.th.models.Treasure;

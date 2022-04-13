@@ -1,4 +1,4 @@
-package fr.carbonit.th;
+package fr.carbonit.th.localisation;
 
 import fr.carbonit.th.localisation.Coordinates;
 import fr.carbonit.th.localisation.Orientation;
