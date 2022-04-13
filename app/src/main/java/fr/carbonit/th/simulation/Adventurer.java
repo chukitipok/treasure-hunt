@@ -1,5 +1,7 @@
 package fr.carbonit.th.simulation;
 
+import fr.carbonit.th.simulation.actions.Action;
+
 import java.util.Queue;
 import java.util.UUID;
 

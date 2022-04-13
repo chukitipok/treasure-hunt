@@ -1,5 +1,9 @@
 package fr.carbonit.th.simulation;
 
+import fr.carbonit.th.simulation.actions.Action;
+import fr.carbonit.th.simulation.actions.MoveForwardAction;
+import fr.carbonit.th.simulation.actions.TurnLeftAction;
+import fr.carbonit.th.simulation.actions.TurnRightAction;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

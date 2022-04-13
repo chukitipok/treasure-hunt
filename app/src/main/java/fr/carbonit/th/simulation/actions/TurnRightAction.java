@@ -1,4 +1,6 @@
-package fr.carbonit.th.simulation;
+package fr.carbonit.th.simulation.actions;
+
+import fr.carbonit.th.simulation.Adventurer;
 
 public class TurnRightAction extends Action {
 
