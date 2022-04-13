@@ -48,6 +48,11 @@ public class TreasureMap {
         cells.put(position2, temporary);
     }
 
+    public boolean canCollectTreasure(Adventurer adventurer) {
+        Coordinates target = adventurer.getPosition().forward().getCoordinates();
+        return containsTreasureAt(target);
+    }
+
     public boolean canMoveForward(Adventurer adventurer) {
         Coordinates target = adventurer.getPosition().forward().getCoordinates();
         return !containsAdventurerAt(target) && !containsMountainAt(target);
