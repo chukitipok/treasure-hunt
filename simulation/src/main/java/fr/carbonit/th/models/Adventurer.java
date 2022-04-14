@@ -4,7 +4,7 @@ import fr.carbonit.th.actions.Action;
 import fr.carbonit.th.localisation.Coordinates;
 import fr.carbonit.th.localisation.Position;
 
-import java.util.Queue;
+import java.util.Deque;
 import java.util.UUID;
 
 public class Adventurer {
@@ -13,9 +13,9 @@ public class Adventurer {
     private final String name;
     private Position position;
     private Integer treasures;
-    private final Queue<Action> actions;
+    private final Deque<Action> actions;
 
-    public Adventurer(String name, Position position, Queue<Action> actions) {
+    public Adventurer(String name, Position position, Deque<Action> actions) {
         this.name = name;
         this.position = position;
         this.actions = actions;
@@ -63,7 +63,7 @@ public class Adventurer {
         return name;
     }
 
-    public Queue<Action> getActions() {
+    public Deque<Action> getActions() {
         return actions;
     }
 

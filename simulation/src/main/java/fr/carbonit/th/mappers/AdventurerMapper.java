@@ -9,13 +9,14 @@ import fr.carbonit.th.localisation.Coordinates;
 import fr.carbonit.th.localisation.Orientation;
 import fr.carbonit.th.localisation.Position;
 
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class AdventurerMapper {
     public Adventurer map(fr.carbonit.th.configuration.Adventurer adventurer) {
         Position position = mapPosition(adventurer.getOrientation(), adventurer.getPosition());
-        Queue<Action> actions = mapActions(adventurer.getActions());
+        Deque<Action> actions = mapActions(adventurer.getActions());
 
         return new Adventurer(adventurer.getName(), position, actions);
     }
@@ -49,9 +50,9 @@ public class AdventurerMapper {
         return mappedOrientation;
     }
 
-    private Queue<Action> mapActions(String actions) {
+    private Deque<Action> mapActions(String actions) {
         String[] s = actions.split("(?<=.)");
-        Queue<Action> result = new LinkedList<>();
+        Deque<Action> result = new LinkedList<>();
 
         for (var a : s) {
             switch (a) {

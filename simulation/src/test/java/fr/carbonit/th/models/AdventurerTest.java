@@ -9,10 +9,7 @@ import fr.carbonit.th.localisation.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
-import java.util.List;
-import java.util.PriorityQueue;
-import java.util.Queue;
+import java.util.*;
 
 import static fr.carbonit.th.localisation.Orientation.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -24,7 +21,7 @@ public class AdventurerTest {
     @BeforeEach
     public void init() {
         Position position = new Position(EAST, new Coordinates(0, 0));
-        Queue<Action> actions = new LinkedList<>(List.of(new TurnLeftAction(), new TurnRightAction()));
+        Deque<Action> actions = new LinkedList<>(List.of(new TurnLeftAction(), new TurnRightAction()));
         adventurer = new Adventurer("Lara", position, actions);
     }
 
@@ -80,7 +77,7 @@ public class AdventurerTest {
     @Test
     public void shouldMoveForwardWithSouthOrientation() {
         Position position = new Position(SOUTH, new Coordinates(0, 0));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
+        Deque<Action> actions = new LinkedList<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
@@ -90,7 +87,7 @@ public class AdventurerTest {
     @Test
     public void shouldMoveForwardWithWestOrientation() {
         Position position = new Position(WEST, new Coordinates(0, 1));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
+        Deque<Action> actions = new LinkedList<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
@@ -100,7 +97,7 @@ public class AdventurerTest {
     @Test
     public void shouldMoveForwardWithNorthOrientation() {
         Position position = new Position(NORTH, new Coordinates(1, 0));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
+        Deque<Action> actions = new LinkedList<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
@@ -110,7 +107,7 @@ public class AdventurerTest {
     @Test
     public void shouldNotMoveNegativeCoordinatesOnAxisX() {
         Position position = new Position(WEST, new Coordinates(0, 0));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
+        Deque<Action> actions = new LinkedList<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
@@ -120,7 +117,7 @@ public class AdventurerTest {
     @Test
     public void shouldNotMoveNegativeCoordinatesOnAxisY() {
         Position position = new Position(NORTH, new Coordinates(0, 0));
-        Queue<Action> actions = new PriorityQueue<>(List.of(new TurnLeftAction()));
+        Deque<Action> actions = new LinkedList<>(List.of(new TurnLeftAction()));
         adventurer = new Adventurer("Lara", position, actions);
         adventurer.moveForward();
 
@@ -136,7 +133,7 @@ public class AdventurerTest {
     @Test
     public void shouldDoAdventurerTurnRightAfterExecutingAction() {
         Position position = new Position(EAST, new Coordinates(0, 0));
-        Queue<Action> actions = new LinkedList<>(List.of(new TurnRightAction()));
+        Deque<Action> actions = new LinkedList<>(List.of(new TurnRightAction()));
         adventurer = new Adventurer("Lara", position, actions);
 
         adventurer.executeAction();
@@ -146,7 +143,7 @@ public class AdventurerTest {
     @Test
     public void shouldDoAdventurerMoveForwardAfterExecutingAction() {
         Position position = new Position(EAST, new Coordinates(0, 0));
-        Queue<Action> actions = new LinkedList<>(List.of(new MoveForwardAction()));
+        Deque<Action> actions = new LinkedList<>(List.of(new MoveForwardAction()));
         adventurer = new Adventurer("Lara", position, actions);
 
         adventurer.executeAction();
