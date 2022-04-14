@@ -16,9 +16,8 @@ public class Simulator {
 
     public TreasureMap simulate(TreasureMap configuration) {
         List<Adventurer> adventurers = configuration.getAdventurers();
-        boolean stillActionsToExecute = true;
 
-        while(stillActionsToExecute) {
+        while(!isHuntOver(adventurers)) {
             for (Adventurer adventurer : adventurers) {
                 Action action = adventurer.getActions().poll();
 
@@ -45,16 +44,16 @@ public class Simulator {
                     action.execute(adventurer);
                 }
             }
-
-            Optional<Integer> actions = adventurers.stream()
-                    .map(adventurer -> adventurer.getActions().size())
-                    .reduce(Integer::sum);
-
-            if (actions.isPresent() && actions.get() == 0) {
-                stillActionsToExecute = false;
-            }
         }
 
         return configuration;
+    }
+
+    private boolean isHuntOver(List<Adventurer> adventurers) {
+        Optional<Integer> optional = adventurers.stream()
+                .map(adventurer -> adventurer.getActions().size())
+                .reduce(Integer::sum);
+
+        return optional.isPresent() && optional.get() == 0;
     }
 }
